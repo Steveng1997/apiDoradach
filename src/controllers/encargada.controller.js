@@ -4,24 +4,16 @@ const pool = require("../config/conexion");
 
 exports.getEncargadas = (req, res) => {
   const sql = "SELECT * FROM encargada ORDER BY id asc;";
-  // pool.query(sql, (err, result, fields) => {
-  //   if (err) {
-  //     res.json({ message: "Error en la consulta" });
-  //   }
-  //   res.json(result)
-  // })
+
   try {
     pool.query(sql, (err, result, fields) => {
       if (err) throw err;
       if (result.length == 0) {
         console.log("Error al obtener la data !")
-        res.status(300).json({ estado: true, data: [] });
+        res.status(300).json(err);
       } else {
         console.log("Data good")
-        res.status(200).json({
-          estado: true,
-          data: result
-        });
+        res.status(200).json(result);
       }
     });
   } catch (err) {
@@ -33,25 +25,15 @@ exports.getById = (req, res) => {
   const id = req.params.id;
 
   const sql = "SELECT * FROM encargada WHERE id = ?";
-  // pool.query(sql, [id], (err, result, fields) => {
-  //   if (err) {
-  //     res.json({ message: "Error en la consulta" });
-  //   }
-  //   res.json(result)
-  // })
+
   try {
     pool.query(sql, [id], (err, result, fields) => {
       if (err) throw err;
       if (result.length == 0) {
         console.log("Error al obtener la data !")
-        // res.status(300).json({ estado: true, data: [] });
         res.status(300).json(err);
       } else {
         console.log("Data good")
-        // res.status(200).json({
-        //   estado: true,
-        //   data: result
-        // });
         res.status(200).json(result);
       }
     });
@@ -69,13 +51,10 @@ exports.getIdAndRol = (req, res) => {
       if (err) throw err;
       if (result.length == 0) {
         console.log("Error al obtener la data !")
-        res.status(300).json({ estado: true, data: [] });
+        res.status(300).json(err);
       } else {
         console.log("Data good")
-        res.status(200).json({
-          estado: true,
-          data: result
-        });
+        res.status(200).json(result);
       }
     });
   } catch (err) {
@@ -92,14 +71,9 @@ exports.getByUsuario = (req, res) => {
       if (err) throw err;
       if (result.length == 0) {
         console.log("Error al obtener la data !")
-        // res.status(300).json({ estado: true, data: [] });
         res.status(300).json(err);
       } else {
         console.log("Data good")
-        // res.status(200).json({
-        //   estado: true,
-        //   data: result
-        // });
         res.status(200).json(result);
       }
     });
@@ -117,13 +91,10 @@ exports.getByNombre = (req, res) => {
       if (err) throw err;
       if (result.length == 0) {
         console.log("Error al obtener la data !")
-        res.status(300).json({ estado: true, data: [] });
+        res.status(300).json(err);
       } else {
         console.log("Data good")
-        res.status(200).json({
-          estado: true,
-          data: result
-        });
+        res.status(200).json(result);
       }
     });
   } catch (err) {
@@ -141,13 +112,10 @@ exports.getUsuarioAndPass = (req, res) => {
       if (err) throw err;
       if (result.length == 0) {
         console.log("Error al obtener la data !")
-        res.status(300).json({ estado: true, data: [] });
+        res.status(300).json(err);
       } else {
         console.log("Data good")
-        res.status(200).json({
-          estado: true,
-          data: result
-        });
+        res.status(200).json(result);
       }
     });
   } catch (err) {
@@ -160,24 +128,15 @@ exports.getUsuarioAndPass = (req, res) => {
 exports.create = (req, res) => {
   const sql = "INSERT INTO encargada SET ?";
 
-  // pool.query(sql, [req.body], (err, result, fields) => {
-  //   if (err) {
-  //     res.json({ message: "Error al guardar en BD" });
-  //   }
-  //   res.json({ message: "Nueva encargada agregada" })
-  // })
   try {
     pool.query(sql, [req.body], (err, result, fields) => {
       if (err) throw err;
       if (result.length == 0) {
         console.log("Error al guardar en BD !")
-        res.status(300).json({ estado: true, data: [] });
+        res.status(300).json(err);
       } else {
         console.log("Nueva encargada agregada")
-        res.status(200).json({
-          estado: true,
-          data: result
-        });
+        res.status(200).json(result);
       }
     });
   } catch (err) {
