@@ -44,13 +44,15 @@ exports.getById = (req, res) => {
       if (err) throw err;
       if (result.length == 0) {
         console.log("Error al obtener la data !")
-        res.status(300).json({ estado: true, data: [] });
+        // res.status(300).json({ estado: true, data: [] });
+        res.status(300).json(err);
       } else {
         console.log("Data good")
-        res.status(200).json({
-          estado: true,
-          data: result
-        });
+        // res.status(200).json({
+        //   estado: true,
+        //   data: result
+        // });
+        res.status(200).json(result);
       }
     });
   } catch (err) {
@@ -90,13 +92,15 @@ exports.getByUsuario = (req, res) => {
       if (err) throw err;
       if (result.length == 0) {
         console.log("Error al obtener la data !")
-        res.status(300).json({ estado: true, data: [] });
+        // res.status(300).json({ estado: true, data: [] });
+        res.status(300).json(err);
       } else {
         console.log("Data good")
-        res.status(200).json({
-          estado: true,
-          data: result
-        });
+        // res.status(200).json({
+        //   estado: true,
+        //   data: result
+        // });
+        res.status(200).json(result);
       }
     });
   } catch (err) {
