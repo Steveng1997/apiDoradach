@@ -4,12 +4,23 @@ const pool = require("../config/conexion");
 
 exports.getTerapeutas = (req, res) => {
   const sql = "SELECT * FROM terapeuta ORDER BY nombre asc;";
-  pool.query(sql, (err, result, fields) => {
-    if (err) {
-      res.json({ message: "Error en la consulta" });
-    }
-    res.json(result)
-  })
+  try {
+    pool.query(sql, (err, result, fields) => {
+      if (err) throw err;
+      if (result.length == 0) {
+        console.log("Error al obtener la data !")
+        res.status(300).json({ estado: true, data: [] });
+      } else {
+        console.log("Data good")
+        res.status(200).json({
+          estado: true,
+          data: result
+        });
+      }
+    });
+  } catch (err) {
+    res.status(409).send(String(err));
+  }
 }
 
 exports.getById = (req, res) => {
