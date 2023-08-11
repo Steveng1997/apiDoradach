@@ -66,20 +66,13 @@ exports.getByUsuario = (req, res) => {
   const { usuario } = req.params;
 
   const sql = "SELECT * FROM encargada WHERE usuario = ?";
-  try {
-    pool.query(sql, [usuario], (err, result, fields) => {
-      if (err) throw err;
-      if (result.length == 0) {
-        console.log("Error al obtener la data !")
-        res.status(300).json(err);
-      } else {
-        console.log("Data good")
-        res.status(200).json(result);
-      }
-    });
-  } catch (err) {
-    res.status(409).send(String(err));
-  }
+
+  pool.query(sql, [usuario], (err, result, fields) => {
+    if (err) {
+      res.json({ message: "Error en la consulta" });
+    }
+    res.json(result)
+  })
 }
 
 exports.getByNombre = (req, res) => {
