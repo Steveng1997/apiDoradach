@@ -1,7 +1,8 @@
 const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
-const routes = require('./src/routes/routes');
+const routeTerapeuta = require('./src/routes/routeTerapeuta');
+const routeEncargada = require('./src/routes/routeEncargada');
 
 const PORT = process.env.PORT || 3000;
 
@@ -16,7 +17,8 @@ app.use(express.json())
 app.use(cors());
 
 //   del app
-app.use('/api/', routes());
+app.use('/api/terapeuta', routeTerapeuta());
+app.use('/api/encargada', routeEncargada());
 
 app.listen(PORT, () => {
   console.log('Running server on port', PORT)
