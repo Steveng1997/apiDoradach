@@ -66,7 +66,7 @@ CREATE TABLE servicio(
     idCierre INT(11),
     idEncargada INT(11),
     idTerapeuta INT(11),
-    idUnico VARCHAR(30),
+    idUnico VARCHAR(500),
     liquidadoEncargada BOOLEAN,
     liquidadoTerapeuta BOOLEAN,
     minuto INT(50),
