@@ -1,16 +1,3 @@
--- CREATE TABLE books(
--- 	id int PRIMARY KEY AUTO_INCREMENT,
--- 	title VARCHAR(255) NOT NULL,
--- 	summary TEXT,
--- 	url_image VARCHAR(255)
--- )
-
--- INSERT INTO books (title, summary, url_image) VALUES('Historia del rey transparente', 'Historia muy interesante','');
--- INSERT INTO books (title, summary, url_image) VALUES('La furia de Aquiles', 'Historia muy interesante','');
-
-
--- SELECT * FROM books;
-
 CREATE DATABASE doradachik;
 
 USE doradachik;
@@ -35,7 +22,7 @@ CREATE TABLE encargada(
 DESCRIBE encargada;
 
 -- Terapeutas
-CREATE TABLE terapeutas(
+CREATE TABLE terapeuta(
     activo BOOLEAN,
     bebida INT(4),
     fechaEnd VARCHAR(30),
@@ -50,7 +37,7 @@ CREATE TABLE terapeutas(
     vitamina VARCHAR(30)
 );
 
-DESCRIBE terapeutas;
+DESCRIBE terapeuta;
 
 -- Servicios
 CREATE TABLE servicio(
@@ -62,7 +49,7 @@ CREATE TABLE servicio(
     bizuTerap BOOLEAN,
     cierre BOOLEAN,
     cliente VARCHAR(30),
-    currentDate INT(50),
+    currentDate VARCHAR(100),
     editar BOOLEAN,
     efectEncarg BOOLEAN,
     efectOtro BOOLEAN,
@@ -76,11 +63,7 @@ CREATE TABLE servicio(
     horaEnd VARCHAR(30),
     horaStart VARCHAR(30),
     id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    -- idCierre VARCHAR(30),
     idCierre INT(11),
-    -- idDocument VARCHAR(30),
-    -- idEncargada VARCHAR(30),
-    -- idTerapeuta VARCHAR(30),
     idEncargada INT(11),
     idTerapeuta INT(11),
     idUnico VARCHAR(30),
@@ -138,7 +121,7 @@ DESCRIBE servicio;
 -- Cierre
 CREATE TABLE cierre(
     bizum INT(50),
-    currentDate INT(50),
+    currentDate VARCHAR(100),
     efectivo INT(50),
     encargada VARCHAR(30),
     fechaDesde VARCHAR(30),
@@ -157,7 +140,7 @@ DESCRIBE cierre;
 
 -- Liquidacion Terapeuta
 CREATE TABLE liquidacionesTerapeuta(
-    currentDate INT(50),
+    currentDate VARCHAR(100),
     desdeFechaLiquidado VARCHAR(30),
     desdeHoraLiquidado VARCHAR(30),
     encargada VARCHAR(30),
@@ -174,7 +157,7 @@ DESCRIBE liquidacionesTerapeuta;
 
 -- Liquidacion Encargada
 CREATE TABLE liquidacionesEncargada(
-    currentDate INT(50),
+    currentDate VARCHAR(100),
     desdeFechaLiquidado VARCHAR(30),
     desdeHoraLiquidado VARCHAR(30),
     encargada VARCHAR(30),
