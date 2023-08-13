@@ -6,7 +6,7 @@ exports.create = (req, res) => {
   const sql = "INSERT INTO terapeuta SET ?";
 
   pool.query(sql, [req.body], () => {
-    res.json({ message: "encargada Saved" });
+    res.json({ message: "terapeuta Saved" });
   });
 };
 
@@ -71,7 +71,7 @@ exports.updateTerapeutas = (req, res) => {
   const sql = "UPDATE terapeuta SET ? WHERE id = ?";
 
   pool.query(sql, [req.body, id], () => {
-    res.json({ message: "The encargada was Updated" });
+    res.json({ message: "The terapeuta was Updated" });
   });
 };
 

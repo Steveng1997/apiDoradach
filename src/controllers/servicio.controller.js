@@ -6,7 +6,7 @@ exports.create = (req, res) => {
   const sql = "INSERT INTO servicio SET ?";
 
   pool.query(sql, [req.body], () => {
-    res.json({ message: "encargada Saved" });
+    res.json({ message: "servicio Saved" });
   });
 };
 
@@ -69,7 +69,7 @@ exports.getByCierre = (req, res) => {
 
 exports.getServicio = (req, res) => {
   const sql =
-    "SELECT * FROM servicio ORDER BY currentDate desc, horaStart desc";
+    "SELECT * FROM servicio ORDER BY currentDate desc";
 
   pool.query(sql, (err, result, fields) => {
     if (err) {
