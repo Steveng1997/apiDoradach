@@ -600,11 +600,11 @@ exports.getFechaHoy = (req, res) => {
 };
 
 exports.getIdUnicoByCierre = (req, res) => {
-  const { fechaHoyInicio } = req.params;
+  const { idUnico } = req.params;
 
   const sql = "SELECT * FROM servicio WHERE idUnico = ? AND cierre = '0'";
 
-  pool.query(sql, [fechaHoyInicio], (err, result, fields) => {
+  pool.query(sql, [idUnico], (err, result, fields) => {
     if (err) {
       throw err;
     }
@@ -614,11 +614,11 @@ exports.getIdUnicoByCierre = (req, res) => {
 };
 
 exports.getIdUnico = (req, res) => {
-  const { fechaHoyInicio } = req.params;
+  const { idUnico } = req.params;
 
   const sql = "SELECT * FROM servicio WHERE idUnico = ? ORDER BY idUnico desc";
 
-  pool.query(sql, [fechaHoyInicio], (err, result, fields) => {
+  pool.query(sql, [idUnico], (err, result, fields) => {
     if (err) {
       throw err;
     }
