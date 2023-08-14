@@ -20,10 +20,10 @@ module.exports = () => {
     routerServicio.get('/getCierreFalse', servicioController.geyByCierreFalse);
     routerServicio.get('/getId/:id', servicioController.getById);
     routerServicio.get('/getIdEditar/:id', servicioController.getByEditar);
-    routerServicio.get('/getByTerapeutaAsc', servicioController.getTerapeutaByAsc);
-    routerServicio.get('/getByTerapeutaDesc', servicioController.getTerapeutaByDesc);
-    routerServicio.get('/getByTerapeuta', servicioController.getTerapeuta);
-    routerServicio.get('/getByIdUnico', servicioController.getIdDocument);
+    routerServicio.get('/getByTerapeutaAsc/:terapeuta', servicioController.getTerapeutaByAsc);
+    routerServicio.get('/getByTerapeutaDesc/:terapeuta', servicioController.getTerapeutaByDesc);
+    routerServicio.get('/getByTerapeuta/:terapeuta', servicioController.getTerapeuta);
+    routerServicio.get('/getByIdUnico/:idUnico', servicioController.getIdDocument);
     routerServicio.get('/getByEncargada/:encargada', servicioController.getEncargada);
     routerServicio.get('/getTerapeuAndEncar/:terapeuta/:encargada', servicioController.getTerapeutaEncargada);
     routerServicio.get('/getEncargadaLiquidacionFalse/:encargada', servicioController.getEncargadaAndLiquidacion);
