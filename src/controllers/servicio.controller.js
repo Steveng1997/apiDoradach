@@ -68,8 +68,7 @@ exports.getByCierre = (req, res) => {
 };
 
 exports.getServicio = (req, res) => {
-  const sql =
-    "SELECT * FROM servicio ORDER BY currentDate desc";
+  const sql = "SELECT * FROM servicio ORDER BY currentDate desc";
 
   pool.query(sql, (err, result, fields) => {
     if (err) {
@@ -627,6 +626,20 @@ exports.getIdUnico = (req, res) => {
   });
 };
 
+exports.getIdDesc = (req, res) => {
+  const { idUnico } = req.params;
+
+  const sql = "SELECT * FROM servicio WHERE idUnico = ? ORDER BY id desc";
+
+  pool.query(sql, [idUnico], (err, result, fields) => {
+    if (err) {
+      throw err;
+    }
+
+    res.status(200).json(result);
+  });
+};
+
 // Actualizamos
 
 exports.updateServicio = (req, res) => {
@@ -664,9 +677,8 @@ exports.updateAllServicio = (req, res) => {
 
 exports.updateNumberPiso1 = (req, res) => {
   const { idUnico } = req.params;
-  const { numberPiso1 = 0 } = req.body;
 
-  const sql = "UPDATE servicio SET numberPiso1 = ? WHERE idUnico = ?";
+  const sql = "UPDATE servicio SET numberPiso1 = '0' WHERE idUnico = ?";
 
   pool.query(sql, [numberPiso1, idUnico], () => {
     res.json({ message: "The servicio was Updated" });
@@ -674,109 +686,115 @@ exports.updateNumberPiso1 = (req, res) => {
 };
 
 exports.updateWithValueNumberPiso1 = (req, res) => {
+  const id = req.params.id;
   const { idUnico } = req.params;
   const { numberPiso1 } = req.body;
 
-  const sql = "UPDATE servicio SET numberPiso1 = ? WHERE idUnico = ?";
+  const sql =
+    "UPDATE servicio SET numberPiso1 = ? WHERE id = ? AND idUnico = ?";
 
-  pool.query(sql, [numberPiso1, idUnico], () => {
+  pool.query(sql, [numberPiso1, id, idUnico], () => {
     res.json({ message: "The servicio was Updated" });
   });
 };
 
 exports.updateNumberPiso2 = (req, res) => {
   const { idUnico } = req.params;
-  const { numberPiso2 = 0 } = req.body;
 
-  const sql = "UPDATE servicio SET numberPiso2 = ? WHERE idUnico = ?";
+  const sql = "UPDATE servicio SET numberPiso2 = '0' WHERE idUnico = ?";
 
-  pool.query(sql, [numberPiso2, idUnico], () => {
+  pool.query(sql, [idUnico], () => {
     res.json({ message: "The servicio was Updated" });
   });
 };
 
 exports.updateWithValueNumberPiso2 = (req, res) => {
+  const id = req.params.id;
   const { idUnico } = req.params;
   const { numberPiso2 } = req.body;
 
-  const sql = "UPDATE servicio SET numberPiso2 = ? WHERE idUnico = ?";
+  const sql =
+    "UPDATE servicio SET numberPiso2 = ? WHERE id = ? AND idUnico = ?";
 
-  pool.query(sql, [numberPiso2, idUnico], () => {
+  pool.query(sql, [numberPiso2, id, idUnico], () => {
     res.json({ message: "The servicio was Updated" });
   });
 };
 
 exports.updateNumberEncargada = (req, res) => {
   const { idUnico } = req.params;
-  const { numberEncarg = 0 } = req.body;
 
-  const sql = "UPDATE servicio SET numberEncarg = ? WHERE idUnico = ?";
+  const sql = "UPDATE servicio SET numberEncarg = '0' WHERE idUnico = ?";
 
-  pool.query(sql, [numberEncarg, idUnico], () => {
+  pool.query(sql, [idUnico], () => {
     res.json({ message: "The servicio was Updated" });
   });
 };
 
 exports.updateWithValueNumberEncargada = (req, res) => {
+  const id = req.params.id;
   const { idUnico } = req.params;
   const { numberEncarg } = req.body;
 
-  const sql = "UPDATE servicio SET numberEncarg = ? WHERE idUnico = ?";
+  const sql =
+    "UPDATE servicio SET numberEncarg = ? WHERE id = ? AND idUnico = ?";
 
-  pool.query(sql, [numberEncarg, idUnico], () => {
+  pool.query(sql, [numberEncarg, id, idUnico], () => {
     res.json({ message: "The servicio was Updated" });
   });
 };
 
 exports.updateNumberTerap = (req, res) => {
   const { idUnico } = req.params;
-  const { numberTerap = 0 } = req.body;
 
-  const sql = "UPDATE servicio SET numberTerap = ? WHERE idUnico = ?";
+  const sql = "UPDATE servicio SET numberTerap = '0' WHERE idUnico = ?";
 
-  pool.query(sql, [numberTerap, idUnico], () => {
+  pool.query(sql, [idUnico], () => {
     res.json({ message: "The servicio was Updated" });
   });
 };
 
 exports.updateWithValueNumberTerap = (req, res) => {
+  const id = req.params.id;
   const { idUnico } = req.params;
   const { numberTerap } = req.body;
 
-  const sql = "UPDATE servicio SET numberTerap = ? WHERE idUnico = ?";
+  const sql =
+    "UPDATE servicio SET numberTerap = ? WHERE id = ? AND idUnico = ?";
 
-  pool.query(sql, [numberTerap, idUnico], () => {
+  pool.query(sql, [numberTerap, id, idUnico], () => {
     res.json({ message: "The servicio was Updated" });
   });
 };
 
 exports.updateNumberOtros = (req, res) => {
   const { idUnico } = req.params;
-  const { numberOtro = 0 } = req.body;
 
-  const sql = "UPDATE servicio SET numberOtro = ? WHERE idUnico = ?";
+  const sql = "UPDATE servicio SET numberOtro = '0' WHERE idUnico = ?";
 
-  pool.query(sql, [numberOtro, idUnico], () => {
+  pool.query(sql, [idUnico], () => {
     res.json({ message: "The servicio was Updated" });
   });
 };
 
 exports.updateWithValueNumberOtros = (req, res) => {
+  const id = req.params.id;
   const { idUnico } = req.params;
   const { numberOtro } = req.body;
 
-  const sql = "UPDATE servicio SET numberOtro = ? WHERE idUnico = ?";
+  const sql = "UPDATE servicio SET numberOtro = ? WHERE id = ? AND idUnico = ?";
 
-  pool.query(sql, [numberOtro, idUnico], () => {
+  pool.query(sql, [numberOtro, id, idUnico], () => {
     res.json({ message: "The servicio was Updated" });
   });
 };
 
 exports.updateLiquidacionTerap = (req, res) => {
   const id = req.params.id;
-  const { liquidadoTerapeuta = 1, idTerapeuta} = req.body;
+  const { liquidadoTerapeuta = 1, idTerapeuta } = req.body;
 
-  const sql = "UPDATE servicio SET liquidadoTerapeuta = ?, idTerapeuta = ? WHERE id = ?";
+  const sql =
+    "UPDATE servicio SET liquidadoTerapeuta = ?, idTerapeuta = ? WHERE id = ?";
 
   pool.query(sql, [liquidadoTerapeuta, idTerapeuta, id], () => {
     res.json({ message: "The servicio was Updated" });
@@ -785,9 +803,10 @@ exports.updateLiquidacionTerap = (req, res) => {
 
 exports.updateLiquidacionEncarg = (req, res) => {
   const id = req.params.id;
-  const { liquidadoEncargada = 1, idEncargada} = req.body;
+  const { liquidadoEncargada = 1, idEncargada } = req.body;
 
-  const sql = "UPDATE servicio SET liquidadoEncargada = ?, idEncargada = ? WHERE id = ?";
+  const sql =
+    "UPDATE servicio SET liquidadoEncargada = ?, idEncargada = ? WHERE id = ?";
 
   pool.query(sql, [liquidadoEncargada, idEncargada, id], () => {
     res.json({ message: "The servicio was Updated" });
@@ -796,7 +815,7 @@ exports.updateLiquidacionEncarg = (req, res) => {
 
 exports.updateCierre = (req, res) => {
   const id = req.params.id;
-  const { cierre = 1, idCierre} = req.body;
+  const { cierre = 1, idCierre } = req.body;
 
   const sql = "UPDATE servicio SET cierre = ?, idCierre = ? WHERE id = ?";
 

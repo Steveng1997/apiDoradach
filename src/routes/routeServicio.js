@@ -48,6 +48,7 @@ module.exports = () => {
     routerServicio.get('/getByFechaHoy/:fechaHoyInicio', servicioController.getFechaHoy);   
     routerServicio.get('/getByIdUnicoByCierre/:idUnico', servicioController.getIdUnicoByCierre);   
     routerServicio.get('/getByIdUnico/:idUnico', servicioController.getIdUnico);   
+    routerServicio.get('/getByIdDesc/:idUnico', servicioController.getIdDesc);   
 
     // Insertar
     routerServicio.post('/registerServicio', servicioController.create);
@@ -56,15 +57,15 @@ module.exports = () => {
     routerServicio.put('/updateByServicio/:id', servicioController.updateServicio);
     routerServicio.put('/updateAllTheServicio/:id', servicioController.updateAllServicio);
     routerServicio.put('/updateByNumberPiso1/:idUnico', servicioController.updateNumberPiso1);
-    routerServicio.put('/updateByWithValueNumberPiso1/:idUnico', servicioController.updateWithValueNumberPiso1);
+    routerServicio.put('/updateByWithValueNumberPiso1/:id/:idUnico', servicioController.updateWithValueNumberPiso1);
     routerServicio.put('/updateByNumberPiso2/:idUnico', servicioController.updateNumberPiso2);
-    routerServicio.put('/updateByWithValueNumberPiso2/:idUnico', servicioController.updateWithValueNumberPiso2);
+    routerServicio.put('/updateByWithValueNumberPiso2/:id/:idUnico', servicioController.updateWithValueNumberPiso2);
     routerServicio.put('/updateByNumberEncargada/:idUnico', servicioController.updateNumberEncargada);
-    routerServicio.put('/updateByWithValueNumberEncargada/:idUnico', servicioController.updateWithValueNumberEncargada);
+    routerServicio.put('/updateByWithValueNumberEncargada/:id/:idUnico', servicioController.updateWithValueNumberEncargada);
     routerServicio.put('/updateByNumberTerap/:idUnico', servicioController.updateNumberTerap);
-    routerServicio.put('/updateByWithValueNumberTerap/:idUnico', servicioController.updateWithValueNumberTerap);
+    routerServicio.put('/updateByWithValueNumberTerap/:id/:idUnico', servicioController.updateWithValueNumberTerap);
     routerServicio.put('/updateByNumberOtros/:idUnico', servicioController.updateNumberOtros);
-    routerServicio.put('/updateByWithValueNumberOtros/:idUnico', servicioController.updateWithValueNumberOtros);
+    routerServicio.put('/updateByWithValueNumberOtros/:id/:idUnico', servicioController.updateWithValueNumberOtros);
     routerServicio.put('/updateByLiquidacionTerap/:id', servicioController.updateLiquidacionTerap);
     routerServicio.put('/updateByLiquidacionEncarg/:id', servicioController.updateLiquidacionEncarg);
     routerServicio.put('/updateByCierre/:id', servicioController.updateCierre);
