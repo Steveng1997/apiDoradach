@@ -42,7 +42,7 @@ module.exports = () => {
     routerServicio.get('/getTerapeutaAndEncargadaFechaDescLiqTrue/:terapeuta/:encargada', servicioController.getTerapeutaFechaDescByLiqTrue);
     routerServicio.get('/getByEncargadaByLiqTrue/:terapeuta/:encargada', servicioController.getEncargadaFechaDescByLiqTrue);
     routerServicio.get('/getByTerapeutaWithCurrentDate/:terapeuta', servicioController.getTerapeutaWithCurrentDate);
-    routerServicio.get('/getByEncargFechaDesc/:terapeuta', servicioController.getEncargFechaDesc);
+    routerServicio.get('/getByEncargFechaDesc/:encargada', servicioController.getEncargFechaDesc);
     routerServicio.get('/getByEncargadaFechaAsc/:encargada', servicioController.getEncargadaFechaAsc);
     routerServicio.get('/getByEncargadaFechaDesc/:encargada', servicioController.getEncargadaFechaDesc);
     routerServicio.get('/getByFechaHoy/:fechaHoyInicio', servicioController.getFechaHoy);
