@@ -49,6 +49,9 @@ module.exports = () => {
     routerServicio.get('/getByIdUnicoByCierre/:idUnico', servicioController.getIdUnicoByCierre);
     routerServicio.get('/getByIdUnico/:idUnico', servicioController.getIdUnico);
     routerServicio.get('/getByIdDesc/:idUnico', servicioController.getIdDesc);
+    routerServicio.get('/getByServicioByEncargadaAndIdUnico/:encargada', servicioController.getServicioByEncargadaAndIdUnico);
+    routerServicio.get('/getByEncargadaFechaAscByCierreTrue/:encargada', servicioController.getEncargadaFechaAscByCierreTrue);
+    routerServicio.get('/getByEncargadaFechaDescByCierreFalse/:encargada', servicioController.getEncargadaFechaDescByCierreFalse);
 
     // Insertar
     routerServicio.post('/registerServicio', servicioController.create);
@@ -69,7 +72,7 @@ module.exports = () => {
     routerServicio.put('/updateByWithValueNumberOtros/:id/:idUnico', servicioController.updateWithValueNumberOtros);
     routerServicio.put('/updateByLiquidacionTerap/:id', servicioController.updateLiquidacionTerap);
     routerServicio.put('/updateByLiquidacionEncarg/:id', servicioController.updateLiquidacionEncarg);
-    routerServicio.put('/updateByCierre/:id', servicioController.updateCierre);
+    routerServicio.put('/updateByCierre/:idCierre/:id', servicioController.updateCierre);
 
     // Eliminar
     routerServicio.delete('/EliminarServicio/:id', servicioController.deleteServicio);

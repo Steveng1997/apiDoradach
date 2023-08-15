@@ -640,6 +640,50 @@ exports.getIdDesc = (req, res) => {
   });
 };
 
+exports.getServicioByEncargadaAndIdUnico = (req, res) => {
+  const { encargada } = req.params;
+
+  const sql = "SELECT * FROM servicio WHERE encargada = ? AND cierre = '0' ORDER BY currentDate asc";
+
+  pool.query(sql, [encargada], (err, result, fields) => {
+    if (err) {
+      throw err;
+    }
+
+    res.status(200).json(result);
+  });
+};
+
+exports.getEncargadaFechaAscByCierreTrue = (req, res) => {
+  const { encargada } = req.params;
+
+  const sql =
+    'SELECT * FROM servicio WHERE encargada = ? AND cierre = "1" ORDER BY currentDate asc';
+
+  pool.query(sql, [encargada], (err, result, fields) => {
+    if (err) {
+      throw err;
+    }
+
+    res.status(200).json(result);
+  });
+};
+
+exports.getEncargadaFechaDescByCierreFalse = (req, res) => {
+  const { encargada } = req.params;
+
+  const sql =
+    'SELECT * FROM servicio WHERE encargada = ? AND cierre = "1" ORDER BY currentDate desc';
+
+  pool.query(sql, [encargada], (err, result, fields) => {
+    if (err) {
+      throw err;
+    }
+
+    res.status(200).json(result);
+  });
+};
+
 // Actualizamos
 
 exports.updateServicio = (req, res) => {
