@@ -7,6 +7,8 @@ const routeTerapeuta = require("./src/routes/routeTerapeuta");
 const routeEncargada = require("./src/routes/routeEncargada");
 const routeServicio = require("./src/routes/routeServicio");
 const routeCierre = require("./src/routes/routeCierre");
+const liquidacionTerapeuta = require("./src/routes/liquidacionTerapeuta");
+const liquidacionEncargada = require("./src/routes/liquidacionEncargada");
 
 const PORT = process.env.PORT || 3000;
 
@@ -25,6 +27,9 @@ app.use("/api/terapeuta", routeTerapeuta());
 app.use("/api/encargada", routeEncargada());
 app.use("/api/servicio", routeServicio());
 app.use("/api/cierre", routeCierre());
+app.use("/api/liqTerapeuta", liquidacionTerapeuta());
+app.use("/api/liqEncargada", liquidacionEncargada());
+
 
 app.listen(PORT, () => {
   console.log("Running server on port", PORT);
