@@ -42,13 +42,13 @@ module.exports = () => {
     routerServicio.get('/getTerapeutaAndEncargadaFechaDescLiqTrue/:terapeuta/:encargada', servicioController.getTerapeutaFechaDescByLiqTrue);
     routerServicio.get('/getByEncargadaByLiqTrue/:terapeuta/:encargada', servicioController.getEncargadaFechaDescByLiqTrue);
     routerServicio.get('/getByTerapeutaWithCurrentDate/:terapeuta', servicioController.getTerapeutaWithCurrentDate);
-    routerServicio.get('/getByEncargFechaDesc/:terapeuta', servicioController.getEncargFechaDesc);   
-    routerServicio.get('/getByEncargadaFechaAsc/:encargada', servicioController.getEncargadaFechaAsc);   
-    routerServicio.get('/getByEncargadaFechaDesc/:encargada', servicioController.getEncargadaFechaDesc);   
-    routerServicio.get('/getByFechaHoy/:fechaHoyInicio', servicioController.getFechaHoy);   
-    routerServicio.get('/getByIdUnicoByCierre/:idUnico', servicioController.getIdUnicoByCierre);   
-    routerServicio.get('/getByIdUnico/:idUnico', servicioController.getIdUnico);   
-    routerServicio.get('/getByIdDesc/:idUnico', servicioController.getIdDesc);   
+    routerServicio.get('/getByEncargFechaDesc/:terapeuta', servicioController.getEncargFechaDesc);
+    routerServicio.get('/getByEncargadaFechaAsc/:encargada', servicioController.getEncargadaFechaAsc);
+    routerServicio.get('/getByEncargadaFechaDesc/:encargada', servicioController.getEncargadaFechaDesc);
+    routerServicio.get('/getByFechaHoy/:fechaHoyInicio', servicioController.getFechaHoy);
+    routerServicio.get('/getByIdUnicoByCierre/:idUnico', servicioController.getIdUnicoByCierre);
+    routerServicio.get('/getByIdUnico/:idUnico', servicioController.getIdUnico);
+    routerServicio.get('/getByIdDesc/:idUnico', servicioController.getIdDesc);
 
     // Insertar
     routerServicio.post('/registerServicio', servicioController.create);
@@ -57,6 +57,7 @@ module.exports = () => {
     routerServicio.put('/updateByServicio/:id', servicioController.updateServicio);
     routerServicio.put('/updateAllTheServicio/:id', servicioController.updateAllServicio);
     routerServicio.put('/updateByNumberPiso1/:idUnico', servicioController.updateNumberPiso1);
+    routerServicio.put('/updateByValuePisos/:id/:idUnico', servicioController.updateValuePisos);
     routerServicio.put('/updateByWithValueNumberPiso1/:id/:idUnico', servicioController.updateWithValueNumberPiso1);
     routerServicio.put('/updateByNumberPiso2/:idUnico', servicioController.updateNumberPiso2);
     routerServicio.put('/updateByWithValueNumberPiso2/:id/:idUnico', servicioController.updateWithValueNumberPiso2);

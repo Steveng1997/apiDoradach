@@ -680,7 +680,19 @@ exports.updateNumberPiso1 = (req, res) => {
 
   const sql = "UPDATE servicio SET numberPiso1 = '0' WHERE idUnico = ?";
 
-  pool.query(sql, [numberPiso1, idUnico], () => {
+  pool.query(sql, [idUnico], () => {
+    res.json({ message: "The servicio was Updated" });
+  });
+};
+
+exports.updateValuePisos = (req, res) => {
+  const id = req.params.id;
+  const { idUnico } = req.params;
+
+  const sql =
+    "UPDATE servicio SET valuePiso1Efectivo = '0', valuePiso1Bizum = '0', valuePiso1Tarjeta = '0', valuePiso1Transaccion = '0', valuePiso2Efectivo = '0', valuePiso2Bizum = '0', valuePiso2Tarjeta = '0', valuePiso2Transaccion = '0' WHERE id = ? AND idUnico = ?";
+
+  pool.query(sql, [id, idUnico], () => {
     res.json({ message: "The servicio was Updated" });
   });
 };
