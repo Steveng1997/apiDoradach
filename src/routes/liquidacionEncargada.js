@@ -15,7 +15,7 @@ module.exports = () => {
     // Actualizar
     routerLiqEncarg.put('/updateByEncargada/:encargada', liquidacionEncargController.update);
     routerLiqEncarg.put('/updateIdAndImporte/:idEncargada', liquidacionEncargController.updateByIdImporte);
-    routerLiqTerap.put('/updateByEncargByImporteById/:id', liquidacionTerapController.updateEncargadaImporteById);   
+    routerLiqTerap.put('/updateByEncargByImporteById/:id', liquidacionEncargController.updateEncargadaImporteById);   
 
     return routerLiqEncarg;
 }
