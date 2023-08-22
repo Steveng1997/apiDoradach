@@ -62,3 +62,14 @@ exports.updateByIdImporte = (req, res) => {
     res.json({ message: "The liquidacion terapeuta was Updated" });
   });
 };
+
+exports.updateTerapeutaImporteById = (req, res) => {
+  const id = req.params.id;
+  const { importe } = req.body;
+
+  const sql = "UPDATE liquidacionesTerapeuta SET importe = ? WHERE id = ?";
+
+  pool.query(sql, [importe, id], () => {
+    res.json({ message: "The liquidacion terapeuta was Updated" });
+  });
+};

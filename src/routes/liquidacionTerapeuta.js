@@ -15,6 +15,7 @@ module.exports = () => {
     // Actualizar
     routerLiqTerap.put('/updateByTerapeuta/:terapeuta', liquidacionTerapController.update);
     routerLiqTerap.put('/updateIdAndImporte/:idTerapeuta', liquidacionTerapController.updateByIdImporte);
+    routerLiqTerap.put('/updateByTerapByImporteById/:id', liquidacionTerapController.updateTerapeutaImporteById);    
 
     return routerLiqTerap;
 }
