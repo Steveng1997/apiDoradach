@@ -44,7 +44,7 @@ exports.update = (req, res) => {
   const { encargada } = req.params;
   const { idEncargada } = req.body;
 
-  const sql = "UPDATE liquidacionesTerapeuta SET idEncargada = ? WHERE encargada = ?";
+  const sql = "UPDATE liquidacionesEncargada SET idEncargada = ? WHERE encargada = ?";
 
   pool.query(sql, [idEncargada, encargada], () => {
     res.json({ message: "The terapeuta was Updated" });
@@ -56,7 +56,7 @@ exports.updateByIdImporte = (req, res) => {
   const { importe } = req.body;
 
   const sql =
-    "UPDATE liquidacionesTerapeuta SET importe = ? WHERE idEncargada = ?";
+    "UPDATE liquidacionesEncargada SET importe = ? WHERE idEncargada = ?";
 
   pool.query(sql, [importe, idEncargada], () => {
     res.json({ message: "The encargada was Updated" });
@@ -67,7 +67,7 @@ exports.updateEncargadaImporteById = (req, res) => {
   const id = req.params.id;
   const { importe } = req.body;
 
-  const sql = "UPDATE liquidacionesTerapeuta SET importe = ? WHERE id = ?";
+  const sql = "UPDATE liquidacionesEncargada SET importe = ? WHERE id = ?";
 
   pool.query(sql, [importe, id], () => {
     res.json({ message: "The encargada was Updated" });
