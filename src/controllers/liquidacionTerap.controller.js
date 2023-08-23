@@ -38,6 +38,21 @@ exports.getIdTerap = (req, res) => {
   });
 };
 
+exports.getByTerapeutaAndEncargada = (req, res) => {
+  const { terapeuta, encargada } = req.params;
+
+  const sql =
+    'SELECT * FROM liquidacionesTerapeuta WHERE terapeuta = ? AND encargada = ? ORDER BY currentDate desc';
+
+  pool.query(sql, [terapeuta, encargada], (err, result, fields) => {
+    if (err) {
+      throw err;
+    }
+
+    res.status(200).json(result);
+  });
+};
+
 // Actualizamos
 
 exports.update = (req, res) => {

@@ -38,6 +38,20 @@ exports.getIdEncarg = (req, res) => {
   });
 };
 
+exports.getByEncargada = (req, res) => {
+  const { encargada } = req.params;
+
+  const sql = "SELECT * FROM liquidacionesEncargada WHERE encargada = ?";
+
+  pool.query(sql, [encargada], (err, result, fields) => {
+    if (err) {
+      throw err;
+    }
+
+    res.status(200).json(result);
+  });
+};
+
 // Actualizamos
 
 exports.update = (req, res) => {
