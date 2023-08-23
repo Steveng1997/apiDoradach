@@ -41,7 +41,7 @@ exports.getIdEncarg = (req, res) => {
 exports.getByEncargada = (req, res) => {
   const { encargada } = req.params;
 
-  const sql = "SELECT * FROM liquidacionesEncargada WHERE encargada = ?";
+  const sql = "SELECT * FROM liquidacionesEncargada WHERE encargada = ? ORDER BY currentDate desc";
 
   pool.query(sql, [encargada], (err, result, fields) => {
     if (err) {
