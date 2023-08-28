@@ -5,11 +5,11 @@ require("dotenv").config();
  * @description PROD
  */
 const config = {
-  host: "apidoradachik.cm4dyckm5td2.us-east-2.rds.amazonaws.com",
+  host: "doradachik.cm4dyckm5td2.us-east-2.rds.amazonaws.com",
   port: 3306,
   user: "doradachikAdmin",
   password: "Di8{q3vz3myy",
-  database: "doradachik"
+  database: "doradachik",
 };
 
 /**
