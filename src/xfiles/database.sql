@@ -58,6 +58,7 @@ DESCRIBE terapeuta;
         efectTerap BOOLEAN,
         encargada VARCHAR(30),
         fecha VARCHAR(30),
+        fechaFin VARCHAR(30),
         fechaHoyInicio VARCHAR(30),
         formaPago VARCHAR(30),
         horaEnd VARCHAR(30),
