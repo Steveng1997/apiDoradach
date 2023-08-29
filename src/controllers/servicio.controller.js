@@ -643,7 +643,8 @@ exports.getIdDesc = (req, res) => {
 exports.getServicioByEncargadaAndIdUnico = (req, res) => {
   const { encargada } = req.params;
 
-  const sql = "SELECT * FROM servicio WHERE encargada = ? AND cierre = '0' ORDER BY currentDate asc";
+  const sql =
+    "SELECT * FROM servicio WHERE encargada = ? AND cierre = '0' ORDER BY currentDate asc";
 
   pool.query(sql, [encargada], (err, result, fields) => {
     if (err) {
@@ -682,6 +683,40 @@ exports.getEncargadaFechaDescByCierreFalse = (req, res) => {
 
     res.status(200).json(result);
   });
+};
+
+exports.getByTerapeutaEncargadaFechaInicio = (req, res) => {
+  const { terapeuta, encargada, fecha } = req.params;
+
+  const sql =
+    'SELECT * FROM servicio WHERE terapeuta = ? AND encargada = ? AND fecha = ? AND liquidadoTerapeuta = "0"';
+
+  pool.query(sql, [terapeuta, encargada, fecha], (err, result, fields) => {
+    if (err) {
+      throw err;
+    }
+
+    res.status(200).json(result);
+  });
+};
+
+exports.getByTerapeutaEncargadaFechaHoraInicio = (req, res) => {
+  const { terapeuta, encargada, fecha, horaStart } = req.params;
+
+  const sql =
+    'SELECT * FROM servicio WHERE terapeuta = ? AND encargada = ? AND fecha = ? AND horaStart AND liquidadoTerapeuta = "0"';
+
+  pool.query(
+    sql,
+    [terapeuta, encargada, fecha, horaStart],
+    (err, result, fields) => {
+      if (err) {
+        throw err;
+      }
+
+      res.status(200).json(result);
+    }
+  );
 };
 
 // Actualizamos

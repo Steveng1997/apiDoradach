@@ -53,6 +53,9 @@ module.exports = () => {
     routerServicio.get('/getByEncargadaFechaAscByCierreTrue/:encargada', servicioController.getEncargadaFechaAscByCierreTrue);
     routerServicio.get('/getByEncargadaFechaDescByCierreFalse/:encargada', servicioController.getEncargadaFechaDescByCierreFalse);
 
+    routerServicio.get('/getTerapeutaEncargadaFechaInicio/:terapeuta/:encargada/:fecha', servicioController.getByTerapeutaEncargadaFechaInicio);
+    routerServicio.get('/getTerapeutaEncargadaFechaHoraInicio/:terapeuta/:encargada/:fecha/:horaStart', servicioController.getByTerapeutaEncargadaFechaHoraInicio);
+
     // Insertar
     routerServicio.post('/registerServicio', servicioController.create);
 
