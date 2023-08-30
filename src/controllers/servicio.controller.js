@@ -742,7 +742,7 @@ exports.getByTerapeutaEncargadaFechaHoraInicioFechaHoraFin = (req, res) => {
   const { terapeuta, encargada, horaStart, horaEnd, fecha, fechaFin,} = req.params;
 
   const sql =
-    'SELECT * FROM servicio WHERE terapeuta = ? AND encargada = ? AND horaStart <= ?  AND horaEnd >= ? AND fecha >= ? AND fechaFin <= ? AND liquidadoTerapeuta = "0"';
+    'SELECT * FROM servicio WHERE terapeuta = ? AND encargada = ? AND horaStart >= ?  AND horaEnd <= ? AND fecha >= ? AND fechaFin <= ? AND liquidadoTerapeuta = "0"';
 
   pool.query(
     sql,
