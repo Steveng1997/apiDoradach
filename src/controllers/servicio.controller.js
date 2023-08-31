@@ -685,69 +685,16 @@ exports.getEncargadaFechaDescByCierreFalse = (req, res) => {
   });
 };
 
-exports.getByTerapeutaEncargadaFechaInicio = (req, res) => {
-  const { terapeuta, encargada, fecha } = req.params;
-
-  const sql =
-    'SELECT * FROM servicio WHERE terapeuta = ? AND encargada = ? AND fecha = ? AND liquidadoTerapeuta = "0"';
-
-  pool.query(sql, [terapeuta, encargada, fecha], (err, result, fields) => {
-    if (err) {
-      throw err;
-    }
-
-    res.status(200).json(result);
-  });
-};
-
-exports.getByTerapeutaEncargadaFechaHoraInicio = (req, res) => {
-  const { terapeuta, encargada, fecha, horaStart } = req.params;
-
-  const sql =
-    'SELECT * FROM servicio WHERE terapeuta = ? AND encargada = ? AND fecha = ? AND horaStart = ? AND liquidadoTerapeuta = "0"';
-
-  pool.query(
-    sql,
-    [terapeuta, encargada, fecha, horaStart],
-    (err, result, fields) => {
-      if (err) {
-        throw err;
-      }
-
-      res.status(200).json(result);
-    }
-  );
-};
-
-exports.getByTerapeutaEncargadaFechaHoraInicioFechaFin = (req, res) => {
-  const { terapeuta, encargada, fecha, fechaFin, horaStart } = req.params;
-
-  const sql =
-    'SELECT * FROM servicio WHERE terapeuta = ? AND encargada = ? AND fecha >= ? AND fechaFin <= ? AND horaStart = ? AND liquidadoTerapeuta = "0"';
-
-  pool.query(
-    sql,
-    [terapeuta, encargada, fecha, fechaFin, horaStart],
-    (err, result, fields) => {
-      if (err) {
-        throw err;
-      }
-
-      res.status(200).json(result);
-    }
-  );
-};
-
 exports.getByTerapeutaEncargadaFechaHoraInicioFechaHoraFin = (req, res) => {
-  const { terapeuta, encargada, horaStart, horaEnd, fecha, fechaFin} = req.query;
+  const { terapeuta, encargada, horaStart, horaEnd, fecha, fechaFin } = req.query;
 
-    const sql = `	SELECT * FROM servicio WHERE terapeuta = ? AND encargada = ? 
+  const sql = `	SELECT * FROM servicio WHERE terapeuta = ? AND encargada = ? 
     AND STR_TO_DATE(CONCAT(fecha,' ',horaStart),'%e-%m-%y %H:%i') >= ?
-    AND STR_TO_DATE(CONCAT(fechaFin,' ',horaEnd),'%e-%m-%y %H:%i') <= ?`
+    AND STR_TO_DATE(CONCAT(fechaFin,' ',horaEnd),'%e-%m-%y %H:%i') <= ?
+    AND liquidadoTerapeuta = "0"`
 
   pool.query(
-    sql,
-    [terapeuta, encargada, `${fecha} ${horaStart}`, `${fechaFin} ${horaEnd}`],
+    sql, [terapeuta, encargada, `${fecha} ${horaStart}`, `${fechaFin} ${horaEnd}`],
     (err, result, fields) => {
       if (err) {
         throw err;
