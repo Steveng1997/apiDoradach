@@ -1,6 +1,6 @@
 const pool = require("../config/conexion");
 
-// Insertamos
+// Insert
 
 exports.create = (req, res) => {
   const sql = "INSERT INTO servicio SET ?";
@@ -10,7 +10,7 @@ exports.create = (req, res) => {
   });
 };
 
-// Consultamos
+// Get
 
 exports.getByCurrentDesc = (req, res) => {
   const sql = 'SELECT * FROM servicio WHERE cierre = "1" ORDER BY id desc';
@@ -744,7 +744,7 @@ exports.getByTerapeutaEncargadaFechaHoraInicioFechaHoraFin = (req, res) => {
     const sql = `	SELECT * FROM servicio WHERE terapeuta = ? AND encargada = ? 
     AND STR_TO_DATE(CONCAT(fecha,' ',horaStart),'%e-%m-%y %H:%i') >= ?
     AND STR_TO_DATE(CONCAT(fechaFin,' ',horaEnd),'%e-%m-%y %H:%i') <= ?`
-    
+
   pool.query(
     sql,
     [terapeuta, encargada, `${fecha} ${horaStart}`, `${fechaFin} ${horaEnd}`],
@@ -759,7 +759,7 @@ exports.getByTerapeutaEncargadaFechaHoraInicioFechaHoraFin = (req, res) => {
 };
 
 
-// Actualizamos
+// Update
 
 exports.updateServicio = (req, res) => {
   const id = req.params.id;
@@ -955,7 +955,7 @@ exports.updateCierre = (req, res) => {
   });
 };
 
-// Eliminamos
+// Delete
 
 exports.deleteServicio = (req, res) => {
   const ID = req.params.id;

@@ -5,7 +5,7 @@ const servicioController = require('../controllers/servicio.controller');
 
 module.exports = () => {
 
-    // Consultar
+    // Get
     routerServicio.get('/getByCierreTrue', servicioController.getByCurrentDesc);
     routerServicio.get('/getTerapeutaAndEncargada/:terapeuta/:encargada', servicioController.getByTerapeutaAndEncargada);
     routerServicio.get('/getEncargada/:encargada', servicioController.getByEncargada);
@@ -53,11 +53,11 @@ module.exports = () => {
     routerServicio.get('/getByEncargadaFechaAscByCierreTrue/:encargada', servicioController.getEncargadaFechaAscByCierreTrue);
     routerServicio.get('/getByEncargadaFechaDescByCierreFalse/:encargada', servicioController.getEncargadaFechaDescByCierreFalse);
     routerServicio.get('/getTerapeutaEncargadaFechaHoraInicioFechaHoraFin', servicioController.getByTerapeutaEncargadaFechaHoraInicioFechaHoraFin);
-    
-    // Insertar
+
+    // Insert
     routerServicio.post('/registerServicio', servicioController.create);
 
-    // Actualizar
+    // Update
     routerServicio.put('/updateByServicio/:id', servicioController.updateServicio);
     routerServicio.put('/updateAllTheServicio/:id', servicioController.updateAllServicio);
     routerServicio.put('/updateByNumberPiso1/:idUnico', servicioController.updateNumberPiso1);
@@ -75,7 +75,7 @@ module.exports = () => {
     routerServicio.put('/updateByLiquidacionEncarg/:id', servicioController.updateLiquidacionEncarg);
     routerServicio.put('/updateByCierre/:idCierre/:id', servicioController.updateCierre);
 
-    // Eliminar
+    // Delete
     routerServicio.delete('/EliminarServicio/:id', servicioController.deleteServicio);
 
     return routerServicio;
