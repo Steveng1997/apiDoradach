@@ -24,7 +24,7 @@ exports.getByCurrentDesc = (req, res) => {
 };
 
 exports.getByTerapeutaAndEncargada = (req, res) => {
-  const { terapeuta, encargada } = req.params;
+  const { terapeuta, encargada } = req.query;
 
   const sql =
     'SELECT * FROM servicio WHERE terapeuta = ? AND encargada = ? AND liquidadoTerapeuta = "0"';
@@ -272,7 +272,7 @@ exports.getEncargada = (req, res) => {
 };
 
 exports.getTerapeutaEncargada = (req, res) => {
-  const { terapeuta, encargada } = req.params;
+  const { terapeuta, encargada } = req.query;
 
   const sql =
     'SELECT * FROM servicio WHERE terapeuta = ? AND encargada = ? AND liquidadoTerapeuta = "0"';
@@ -406,7 +406,7 @@ exports.getEncargadaNoCierre = (req, res) => {
 };
 
 exports.getTerapeutaFechaAsc = (req, res) => {
-  const { terapeuta, encargada } = req.params;
+  const { terapeuta, encargada } = req.query;
 
   const sql =
     'SELECT * FROM servicio WHERE terapeuta = ? AND encargada = ? AND liquidadoTerapeuta = "0" ORDER BY currentDate asc';
@@ -421,7 +421,7 @@ exports.getTerapeutaFechaAsc = (req, res) => {
 };
 
 exports.getTerapeutaFechaAscByLiqTrue = (req, res) => {
-  const { terapeuta, encargada } = req.params;
+  const { terapeuta, encargada } = req.query;
 
   const sql =
     'SELECT * FROM servicio WHERE terapeuta = ? AND encargada = ? AND liquidadoTerapeuta = "1" ORDER BY currentDate asc';
@@ -466,7 +466,7 @@ exports.getEncargFechaAsc = (req, res) => {
 };
 
 exports.getTerapeutaFechaDesc = (req, res) => {
-  const { terapeuta, encargada } = req.params;
+  const { terapeuta, encargada } = req.query;
 
   const sql =
     'SELECT * FROM servicio WHERE terapeuta = ? AND encargada = ? AND liquidadoTerapeuta = "0" ORDER BY currentDate desc';
@@ -481,7 +481,7 @@ exports.getTerapeutaFechaDesc = (req, res) => {
 };
 
 exports.getTerapeutaFechaDescByLiqTrue = (req, res) => {
-  const { terapeuta, encargada } = req.params;
+  const { terapeuta, encargada } = req.query;
 
   const sql =
     'SELECT * FROM servicio WHERE terapeuta = ? AND encargada = ? AND liquidadoTerapeuta = "1" ORDER BY currentDate desc';

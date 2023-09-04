@@ -39,7 +39,7 @@ exports.getIdTerap = (req, res) => {
 };
 
 exports.getByTerapeutaAndEncargada = (req, res) => {
-  const { terapeuta, encargada } = req.params;
+  const { terapeuta, encargada } = req.query;
 
   const sql =
     'SELECT * FROM liquidacionesTerapeuta WHERE terapeuta = ? AND encargada = ? ORDER BY currentDate desc';

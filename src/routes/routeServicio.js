@@ -7,7 +7,7 @@ module.exports = () => {
 
     // Get
     routerServicio.get('/getByCierreTrue', servicioController.getByCurrentDesc);
-    routerServicio.get('/getTerapeutaAndEncargada/:terapeuta/:encargada', servicioController.getByTerapeutaAndEncargada);
+    routerServicio.get('/getTerapeutaAndEncargada', servicioController.getByTerapeutaAndEncargada);
     routerServicio.get('/getEncargada/:encargada', servicioController.getByEncargada);
     routerServicio.get('/getEncargadaAndCierre/:encargada', servicioController.getByCierre);
     routerServicio.get('/getServicios', servicioController.getServicio);
@@ -25,7 +25,7 @@ module.exports = () => {
     routerServicio.get('/getByTerapeuta/:terapeuta', servicioController.getTerapeuta);
     routerServicio.get('/getByIdUnico/:idUnico', servicioController.getIdDocument);
     routerServicio.get('/getByEncargada/:encargada', servicioController.getEncargada);
-    routerServicio.get('/getTerapeuAndEncar/:terapeuta/:encargada', servicioController.getTerapeutaEncargada);
+    routerServicio.get('/getTerapeuAndEncar', servicioController.getTerapeutaEncargada);
     routerServicio.get('/getEncargadaLiquidacionFalse/:encargada', servicioController.getEncargadaAndLiquidacion);
     routerServicio.get('/getEncargadaLiquidadoTerpFalse/:encargada', servicioController.getEncargadaNoLiquidadaTerap);
     routerServicio.get('/getEncargNoLiquid/:encargada', servicioController.getEncargadaNoLiquidada);
@@ -34,13 +34,13 @@ module.exports = () => {
     routerServicio.get('/getNoEncargNoLiquidByFechaAsc/:encargada', servicioController.getEncargadaNoLiquidadaByFechaAsc);
     routerServicio.get('/getNoTerapNoLiquidByFechaAsc/:encargada', servicioController.getTerapNoLiquidadaByFechaAsc);
     routerServicio.get('/getByEncargadaNoCierre/:encargada', servicioController.getEncargadaNoCierre);
-    routerServicio.get('/getByTerapFechaAsc/:terapeuta/:encargada', servicioController.getTerapeutaFechaAsc);
-    routerServicio.get('/getByTerapFechaAscByLiquidadoTrue/:terapeuta/:encargada', servicioController.getTerapeutaFechaAscByLiqTrue);
+    routerServicio.get('/getByTerapFechaAsc', servicioController.getTerapeutaFechaAsc);
+    routerServicio.get('/getByTerapFechaAscByLiquidadoTrue', servicioController.getTerapeutaFechaAscByLiqTrue);
     routerServicio.get('/getEncargFechaAscByLiqTrue/:encargada', servicioController.getEncargadaFechaAscByLiqTrue);
     routerServicio.get('/getEncargFechaAscByLiqFalse/:encargada', servicioController.getEncargFechaAsc);
-    routerServicio.get('/getTerapeutaAndEncargadaFechaDesc/:terapeuta/:encargada', servicioController.getTerapeutaFechaDesc);
-    routerServicio.get('/getTerapeutaAndEncargadaFechaDescLiqTrue/:terapeuta/:encargada', servicioController.getTerapeutaFechaDescByLiqTrue);
-    routerServicio.get('/getByEncargadaByLiqTrue/:terapeuta/:encargada', servicioController.getEncargadaFechaDescByLiqTrue);
+    routerServicio.get('/getTerapeutaAndEncargadaFechaDesc', servicioController.getTerapeutaFechaDesc);
+    routerServicio.get('/getTerapeutaAndEncargadaFechaDescLiqTrue', servicioController.getTerapeutaFechaDescByLiqTrue);
+    routerServicio.get('/getByEncargadaByLiqTrue/:encargada', servicioController.getEncargadaFechaDescByLiqTrue);
     routerServicio.get('/getByTerapeutaWithCurrentDate/:terapeuta', servicioController.getTerapeutaWithCurrentDate);
     routerServicio.get('/getByEncargFechaDesc/:encargada', servicioController.getEncargFechaDesc);
     routerServicio.get('/getByEncargadaFechaAsc/:encargada', servicioController.getEncargadaFechaAsc);

@@ -69,8 +69,7 @@ exports.getByNombre = (req, res) => {
 };
 
 exports.getUsuarioAndPass = (req, res) => {
-  const { usuario } = req.params;
-  const { pass } = req.params;
+  const { usuario, pass } = req.query;
 
   const sql = "SELECT * FROM encargada WHERE usuario = ? AND pass = ?";
 

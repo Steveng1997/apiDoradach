@@ -13,9 +13,9 @@ module.exports = () => {
 
     // Insertar
     routerTerapeuta.post('/registerTerapeuta', terapeutaController.create);
-
+    
     // Actualizar
-    routerTerapeuta.put('/updateByTerapeuta/:id', terapeutaController.updateTerapeutas);
+    routerTerapeuta.put('/updateTherapistById/:id', terapeutaController.updateTerapeutas);
     routerTerapeuta.put('/update3Item/:nombre', terapeutaController.updateBy3Item);
     routerTerapeuta.put('/updateByHoraAndSalida/:nombre', terapeutaController.updateHoraAndSalida);
 

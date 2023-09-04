@@ -10,7 +10,7 @@ module.exports = () => {
     routerEncargada.get('/idAdmin/:id', encargadaController.getIdAndRol);
     routerEncargada.get('/usuarioEncargada/:usuario', encargadaController.getByUsuario);
     routerEncargada.get('/nombreEncargada/:nombre', encargadaController.getByNombre);
-    routerEncargada.get('/usuarioAndpass/:usuario/:pass', encargadaController.getUsuarioAndPass);
+    routerEncargada.get('/usuarioAndpass', encargadaController.getUsuarioAndPass);
     routerEncargada.get('/listaEncargada', encargadaController.getEncargadas);
 
     // Insertar

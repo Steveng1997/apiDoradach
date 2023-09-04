@@ -8,7 +8,7 @@ module.exports = () => {
     // Consultar
     routerLiqTerap.get('/getByLiquidacionesTerapeuta', liquidacionTerapController.getLiquidacionesTerapeuta);
     routerLiqTerap.get('/getByIdTerap/:idTerapeuta', liquidacionTerapController.getIdTerap);
-    routerLiqTerap.get('/getTerapeutaAndEncargada/:terapeuta/:encargada', liquidacionTerapController.getByTerapeutaAndEncargada);
+    routerLiqTerap.get('/getTerapeutaAndEncargada', liquidacionTerapController.getByTerapeutaAndEncargada);
 
     // Insertar
     routerLiqTerap.post('/registerLiqTerap', liquidacionTerapController.create);
