@@ -874,7 +874,7 @@ exports.updateLiquidacionTerap = (req, res) => {
   const sql =
     "UPDATE servicio SET liquidadoTerapeuta = ?, idTerapeuta = ? WHERE id = ?";
 
-  pool.query(sql, [id, idTerapeuta, liquidadoTerapeuta], () => {
+  pool.query(sql, [liquidadoTerapeuta, idTerapeuta, id], () => {
     res.json({ message: "The servicio was Updated" });
   });
 };
