@@ -149,7 +149,7 @@ CREATE TABLE liquidacionesTerapeuta(
     hastaHoraLiquidado VARCHAR(30),
     id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     idUnico VARCHAR(100),
-    idTerapeuta INT(11),
+    idTerapeuta VARCHAR(100),
     importe INT(50),
     terapeuta VARCHAR(30),
     tratamiento INT(50)
@@ -167,7 +167,7 @@ CREATE TABLE liquidacionesEncargada(
     hastaHoraLiquidado VARCHAR(30),
     id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     idUnico VARCHAR(100),
-    idEncargada INT(50),
+    idEncargada VARCHAR(100),
     importe INT(50),
     tratamiento INT(50)
 );
