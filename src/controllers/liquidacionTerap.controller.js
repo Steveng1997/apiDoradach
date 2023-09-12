@@ -14,7 +14,7 @@ exports.create = (req, res) => {
 
 exports.getLiquidacionesTerapeuta = (req, res) => {
 
-  const sql = "SELECT * FROM liquidacionesTerapeuta ORDER BY currentDate desc";
+  const sql = "SELECT * FROM liquidacionesTerapeuta ORDER BY id desc";
   pool.query(sql, (err, result, fields) => {
     if (err) {
       throw err;
