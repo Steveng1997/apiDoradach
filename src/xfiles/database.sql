@@ -65,8 +65,8 @@ DESCRIBE terapeuta;
         horaStart VARCHAR(30),
         id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
         idCierre INT(11),
-        idEncargada INT(11),
-        idTerapeuta INT(11),
+        idEncargada VARCHAR(100),
+        idTerapeuta VARCHAR(100),
         idUnico VARCHAR(500),
         liquidadoEncargada BOOLEAN,
         liquidadoTerapeuta BOOLEAN,
@@ -148,7 +148,8 @@ CREATE TABLE liquidacionesTerapeuta(
     hastaFechaLiquidado VARCHAR(30),
     hastaHoraLiquidado VARCHAR(30),
     id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    idTerapeuta INT(11),
+    idUnico VARCHAR(100),
+    idTerapeuta VARCHAR(100),
     importe INT(50),
     terapeuta VARCHAR(30),
     tratamiento INT(50)
@@ -165,7 +166,8 @@ CREATE TABLE liquidacionesEncargada(
     hastaFechaLiquidado VARCHAR(30),
     hastaHoraLiquidado VARCHAR(30),
     id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    idEncargada INT(50),
+    idUnico VARCHAR(100),
+    idEncargada VARCHAR(100),
     importe INT(50),
     tratamiento INT(50)
 );
