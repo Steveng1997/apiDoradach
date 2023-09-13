@@ -89,12 +89,24 @@ exports.updateBy3Item = (req, res) => {
 
 exports.updateHoraAndSalida = (req, res) => {
   const { nombre } = req.params;
-  const { horaEnd = "", salida = "", fechaEnd = "" } = req.body;
+  const { horaEnd = "", salida = "", fechaEnd = "", minuto = "" } = req.body;
 
   const sql =
-    "UPDATE terapeuta SET horaEnd = ?, salida = ?, fechaEnd = ? WHERE nombre = ?";
+    "UPDATE terapeuta SET horaEnd = ?, salida = ?, fechaEnd = ?, minuto = ? WHERE nombre = ?";
 
-  pool.query(sql, [horaEnd, salida, fechaEnd, nombre], () => {
+  pool.query(sql, [horaEnd, salida, fechaEnd, minuto, nombre], () => {
+    res.json({ message: "The encargada was Updated" });
+  });
+};
+
+exports.updateMinutoByNombre = (req, res) => {
+  const { nombre } = req.params;
+  const { minuto } = req.body;
+
+  const sql =
+    "UPDATE terapeuta SET minuto = ? WHERE nombre = ?";
+
+  pool.query(sql, [minuto, nombre], () => {
     res.json({ message: "The encargada was Updated" });
   });
 };
