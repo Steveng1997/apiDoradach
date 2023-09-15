@@ -42,7 +42,7 @@ exports.getByTerapeutaAndEncargada = (req, res) => {
   const { terapeuta, encargada } = req.query;
 
   const sql =
-    'SELECT * FROM liquidacionesTerapeuta WHERE terapeuta = ? AND encargada = ? ORDER BY currentDate desc';
+    'SELECT * FROM liquidacionesTerapeuta WHERE terapeuta = ? AND encargada = ? ORDER BY id desc';
 
   pool.query(sql, [terapeuta, encargada], (err, result, fields) => {
     if (err) {
