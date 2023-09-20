@@ -61,7 +61,7 @@ DESCRIBE terapeuta;
         fecha VARCHAR(30),
         fechaFin VARCHAR(30),
         fechaHoyInicio VARCHAR(30),
-        formaPago VARCHAR(30),
+        formaPago VARCHAR(500),
         horaEnd VARCHAR(30),
         horaStart VARCHAR(30),
         id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
