@@ -725,7 +725,6 @@ exports.getByEncargadaFechaHoraInicioFechaHoraFin = (req, res) => {
   );
 };
 
-
 // Update
 
 exports.updateServicio = (req, res) => {
