@@ -686,15 +686,17 @@ exports.getEncargadaFechaDescByCierreFalse = (req, res) => {
 };
 
 exports.getByTerapeutaEncargadaFechaHoraInicioFechaHoraFin = (req, res) => {
-  const { terapeuta, encargada, horaStart, horaEnd, fecha, fechaFin } = req.query;
+  const { terapeuta, encargada, horaStart, horaEnd, fecha, fechaFin } =
+    req.query;
 
   const sql = `	SELECT * FROM servicio WHERE terapeuta = ? AND encargada = ? 
     AND STR_TO_DATE(CONCAT(fecha,' ',horaStart),'%e-%m-%y %H:%i') >= ?
     AND STR_TO_DATE(CONCAT(fechaFin,' ',horaEnd),'%e-%m-%y %H:%i') <= ?
-    AND liquidadoTerapeuta = "0" ORDER BY id desc`
+    AND liquidadoTerapeuta = "0" ORDER BY id desc`;
 
   pool.query(
-    sql, [terapeuta, encargada, `${fecha} ${horaStart}`, `${fechaFin} ${horaEnd}`],
+    sql,
+    [terapeuta, encargada, `${fecha} ${horaStart}`, `${fechaFin} ${horaEnd}`],
     (err, result, fields) => {
       if (err) {
         throw err;
@@ -711,10 +713,11 @@ exports.getByEncargadaFechaHoraInicioFechaHoraFin = (req, res) => {
   const sql = `	SELECT * FROM servicio WHERE encargada = ?
     AND STR_TO_DATE(CONCAT(fecha,' ',horaStart),'%e-%m-%y %H:%i') >= ?
     AND STR_TO_DATE(CONCAT(fechaFin,' ',horaEnd),'%e-%m-%y %H:%i') <= ?
-    AND liquidadoEncargada = "0" ORDER BY id desc`
+    AND liquidadoEncargada = "0" ORDER BY id desc`;
 
   pool.query(
-    sql, [encargada, `${fecha} ${horaStart}`, `${fechaFin} ${horaEnd}`],
+    sql,
+    [encargada, `${fecha} ${horaStart}`, `${fechaFin} ${horaEnd}`],
     (err, result, fields) => {
       if (err) {
         throw err;
@@ -728,7 +731,7 @@ exports.getByEncargadaFechaHoraInicioFechaHoraFin = (req, res) => {
 exports.getManagerDate = (req, res) => {
   const { encargada, fecha } = req.query;
 
-  const sql = 'SELECT * FROM servicio WHERE encargada = ? AND fecha = ?';
+  const sql = "SELECT * FROM servicio WHERE encargada = ? AND fecha = ?";
 
   pool.query(sql, [encargada, fecha], (err, result, fields) => {
     if (err) {
@@ -742,7 +745,7 @@ exports.getManagerDate = (req, res) => {
 exports.getTherapistDate = (req, res) => {
   const { terapeuta, fecha } = req.query;
 
-  const sql = 'SELECT * FROM servicio WHERE terapeuta = ? AND fecha = ?';
+  const sql = "SELECT * FROM servicio WHERE terapeuta = ? AND fecha = ?";
 
   pool.query(sql, [terapeuta, fecha], (err, result, fields) => {
     if (err) {
@@ -751,6 +754,91 @@ exports.getTherapistDate = (req, res) => {
 
     res.status(200).json(result);
   });
+};
+
+exports.getByManagerpaymentForm = (req, res) => {
+  const { terapeuta, fecha } = req.query;
+
+  const sql = "SELECT * FROM servicio WHERE encargada = ? AND formaPago = ?";
+
+  pool.query(sql, [terapeuta, fecha], (err, result, fields) => {
+    if (err) {
+      throw err;
+    }
+
+    res.status(200).json(result);
+  });
+};
+
+exports.getByTherapistpaymentForm = (req, res) => {
+  const { terapeuta, fecha } = req.query;
+
+  const sql = "SELECT * FROM servicio WHERE terapeuta = ? AND formaPago = ?";
+
+  pool.query(sql, [terapeuta, fecha], (err, result, fields) => {
+    if (err) {
+      throw err;
+    }
+
+    res.status(200).json(result);
+  });
+};
+
+exports.getByManagerAndDate = (req, res) => {
+  const { encargada, fecha, fechaFin } = req.query;
+
+  const sql = `SELECT * FROM servicio WHERE encargada = ?
+    AND STR_TO_DATE(fecha),'%e-%m-%y) >= ? AND STR_TO_DATE(fechaFin),'%e-%m-%y) <= ?`;
+
+  pool.query(
+    sql,
+    [encargada, fecha, fechaFin],
+    (err, result, fields) => {
+      if (err) {
+        throw err;
+      }
+
+      res.status(200).json(result);
+    }
+  );
+};
+
+exports.getByTherapistAndDate = (req, res) => {
+  const { terapeuta, fecha, fechaFin } = req.query;
+
+  const sql = `SELECT * FROM servicio WHERE terapeuta = ?
+    AND STR_TO_DATE(fecha),'%e-%m-%y) >= ? AND STR_TO_DATE(fechaFin),'%e-%m-%y) <= ?`;
+
+  pool.query(
+    sql,
+    [terapeuta, fecha ,fechaFin],
+    (err, result, fields) => {
+      if (err) {
+        throw err;
+      }
+
+      res.status(200).json(result);
+    }
+  );
+};
+
+exports.getBypaymentFormAndDate = (req, res) => {
+  const { formaPago, fecha, fechaFin } = req.query;
+
+  const sql = `SELECT * FROM servicio WHERE formaPago = ?
+    AND STR_TO_DATE(fecha),'%e-%m-%y) >= ? AND STR_TO_DATE(fechaFin),'%e-%m-%y) <= ?`;
+
+  pool.query(
+    sql,
+    [formaPago, fecha ,fechaFin],
+    (err, result, fields) => {
+      if (err) {
+        throw err;
+      }
+
+      res.status(200).json(result);
+    }
+  );
 };
 
 // Update
