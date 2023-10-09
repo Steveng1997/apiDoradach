@@ -9,8 +9,7 @@ module.exports = () => {
     routerLiqTerap.get('/getByLiquidacionesTerapeuta', liquidacionTerapController.getLiquidacionesTerapeuta);
     routerLiqTerap.get('/getByIdTerap/:idTerapeuta', liquidacionTerapController.getIdTerap);
     routerLiqTerap.get('/getTerapeutaAndEncargada', liquidacionTerapController.getByTerapeutaAndEncargada);
-    routerLiqTerap.get('/getEncargada/:encargada', liquidacionTerapController.getByEncargada);
-    
+    routerLiqTerap.get('/getEncargada/:encargada', liquidacionTerapController.getByEncargada);    
 
     // Insertar
     routerLiqTerap.post('/registerLiqTerap', liquidacionTerapController.create);

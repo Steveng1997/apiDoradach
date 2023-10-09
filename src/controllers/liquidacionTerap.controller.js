@@ -14,7 +14,7 @@ exports.create = (req, res) => {
 
 exports.getLiquidacionesTerapeuta = (req, res) => {
   const sql = "SELECT * FROM liquidacionesTerapeuta ORDER BY id desc";
-  
+
   pool.query(sql, (err, result, fields) => {
     if (err) {
       throw err;
@@ -54,10 +54,9 @@ exports.getByTerapeutaAndEncargada = (req, res) => {
 };
 
 exports.getByEncargada = (req, res) => {
-  const { encargada } = req.query;
+  const { encargada } = req.params;
 
-  const sql =
-    'SELECT * FROM liquidacionesTerapeuta WHERE encargada = ? ORDER BY id desc';
+  const sql = 'SELECT * FROM liquidacionesTerapeuta WHERE encargada = ? ORDER BY id desc';
 
   pool.query(sql, [encargada], (err, result, fields) => {
     if (err) {
