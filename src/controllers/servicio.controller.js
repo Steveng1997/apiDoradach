@@ -728,6 +728,21 @@ exports.getByEncargadaFechaHoraInicioFechaHoraFin = (req, res) => {
   );
 };
 
+exports.getFechaHoyAndManager = (req, res) => {
+  const { fechaHoyInicio, encargada } = req.query;
+
+  const sql =
+    "SELECT * FROM servicio WHERE fechaHoyInicio = ? AND encargada = ? ORDER BY currentDate desc";
+
+  pool.query(sql, [fechaHoyInicio, encargada], (err, result, fields) => {
+    if (err) {
+      throw err;
+    }
+
+    res.status(200).json(result);
+  });
+};
+
 // Update
 
 exports.updateServicio = (req, res) => {
