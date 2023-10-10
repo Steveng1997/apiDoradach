@@ -79,6 +79,20 @@ exports.getServicio = (req, res) => {
   });
 };
 
+exports.getManagerOrderCurrenDate = (req, res) => {
+  const { encargada } = req.params;
+
+  const sql = "SELECT * FROM servicio WHERE encargada = ? ORDER BY currentDate desc";
+
+  pool.query(sql, [encargada], (err, result, fields) => {
+    if (err) {
+      throw err;
+    }
+
+    res.status(200).json(result);
+  });
+};
+
 exports.getByLiquidEncargadaFalse = (req, res) => {
   const sql =
     'SELECT * FROM servicio WHERE liquidadoEncargada = "0" ORDER BY currentDate desc';
