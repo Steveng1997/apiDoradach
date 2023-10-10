@@ -11,7 +11,7 @@ module.exports = () => {
     routerServicio.get('/getEncargada/:encargada', servicioController.getByEncargada);
     routerServicio.get('/getEncargadaAndCierre/:encargada', servicioController.getByCierre);
     routerServicio.get('/getServicios', servicioController.getServicio);
-    routerServicio.get('/getManagerOrderCurrentDate', servicioController.getManagerOrderCurrenDate);
+    routerServicio.get('/getManagerOrderCurrentDate/:encargada', servicioController.getManagerOrderCurrenDate);
     routerServicio.get('/getByLiquidacionEncargadaFalse', servicioController.getByLiquidEncargadaFalse);
     routerServicio.get('/getByLiquidacionTerapeutaFalse', servicioController.getByLiquidTerapFalse);
     routerServicio.get('/getByLiquidacionTerapeutaTrue', servicioController.getByLiquidTerapTrue);
@@ -56,7 +56,7 @@ module.exports = () => {
     routerServicio.get('/getTerapeutaEncargadaFechaHoraInicioFechaHoraFin', servicioController.getByTerapeutaEncargadaFechaHoraInicioFechaHoraFin);
     routerServicio.get('/getEncargadaFechaHoraInicioFechaHoraFin', servicioController.getByEncargadaFechaHoraInicioFechaHoraFin)
     routerServicio.get('/getFechaHoyByManager', servicioController.getFechaHoyAndManager)
-    
+
     // Insert
     routerServicio.post('/registerServicio', servicioController.create);
 
