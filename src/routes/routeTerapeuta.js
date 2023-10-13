@@ -18,6 +18,7 @@ module.exports = () => {
     routerTerapeuta.put('/updateTherapistById/:id', terapeutaController.updateTerapeutas);
     routerTerapeuta.put('/update4Item/:nombre', terapeutaController.updateBy4Item);
     routerTerapeuta.put('/updateByHoraAndSalida/:nombre', terapeutaController.updateHoraAndSalida);
+    routerTerapeuta.put('/updateMinutesWithId/:id', terapeutaController.updateMinutesById);    
 
     // Eliminar
     routerTerapeuta.delete('/deleteTerapeuta/:id', terapeutaController.deleteTerapeutas);

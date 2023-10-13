@@ -99,6 +99,19 @@ exports.updateHoraAndSalida = (req, res) => {
   });
 };
 
+exports.updateMinutesById = (req, res) => {
+  const id = req.params.id;
+  const { minuto } = req.body;
+
+  const sql =
+    "UPDATE terapeuta SET minuto = ? WHERE id = ?";
+
+  pool.query(sql, [minuto, id], () => {
+    res.json({ message: "The encargada was Updated" });
+  });
+};
+
+
 // Eliminamos
 
 exports.deleteTerapeutas = (req, res) => {
