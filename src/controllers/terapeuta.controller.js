@@ -89,12 +89,11 @@ exports.updateBy4Item = (req, res) => {
 
 exports.updateHoraAndSalida = (req, res) => {
   const { nombre } = req.params;
-  const { horaEnd = "", salida = "", fechaEnd = "", minuto = "" } = req.body;
 
   const sql =
-    "UPDATE terapeuta SET horaEnd = ?, salida = ?, fechaEnd = ?, minuto = ? WHERE nombre = ?";
+    "UPDATE terapeuta SET horaEnd = '', salida = '', fechaEnd = '', minuto = '' WHERE nombre = ?";
 
-  pool.query(sql, [horaEnd, salida, fechaEnd, minuto, nombre], () => {
+  pool.query(sql, [nombre], () => {
     res.json({ message: "The encargada was Updated" });
   });
 };
