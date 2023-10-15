@@ -757,6 +757,22 @@ exports.getFechaHoyAndManager = (req, res) => {
   });
 };
 
+exports.getFechaAndId = (req, res) => {
+  const id = req.params.id;
+  const { fechaHoyInicio } = req.query;
+
+  const sql =
+    "SELECT * FROM servicio WHERE id = ? AND fechaHoyInicio = ?";
+
+  pool.query(sql, [id, fechaHoyInicio], (err, result, fields) => {
+    if (err) {
+      throw err;
+    }
+
+    res.status(200).json(result);
+  });
+};
+
 // Update
 
 exports.updateServicio = (req, res) => {
