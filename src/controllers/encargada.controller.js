@@ -83,10 +83,11 @@ exports.getUsuarioAndPass = (req, res) => {
       } else {
         res.json('Usuario o clave incorrectos');
       }
+    } else {
+      console.log(err);
     }
-    res.status(200).json(result);
-  });
-};
+  })
+}
 
 exports.getEncargadas = (req, res) => {
   const sql = "SELECT * FROM encargada ORDER BY id asc;";
