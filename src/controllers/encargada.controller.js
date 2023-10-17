@@ -76,8 +76,8 @@ exports.getUsuarioAndPass = (req, res) => {
 
   pool.query(sql, [usuario, pass], (err, result, fields) => {
     if (!err) {
-      if (rows.length > 0){
-        let data = JSON.stringify(rows[0]);
+      if (result.length > 0){
+        let data = JSON.stringify(result[0]);
         const token = jwt.sign(data, 'stil');
         res.json({token});
       } else {
