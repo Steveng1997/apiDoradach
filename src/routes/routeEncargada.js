@@ -13,7 +13,7 @@ module.exports = () => {
     routerEncargada.get('/usuarioAndpass', encargadaController.getUsuarioAndPass);
     routerEncargada.get('/listaEncargada', encargadaController.getEncargadas);
 
-    router.post('/test', verifyToken, (req, res) => {
+    routerEncargada.post('/test', verifyToken, (req, res) => {
         res.json('Informacion secreta');
     })
 
