@@ -1,4 +1,5 @@
 const pool = require("../config/conexion");
+const jwt = require('jsonwebtoken');
 
 // Insertamos
 
@@ -74,10 +75,15 @@ exports.getUsuarioAndPass = (req, res) => {
   const sql = "SELECT * FROM encargada WHERE usuario = ? AND pass = ?";
 
   pool.query(sql, [usuario, pass], (err, result, fields) => {
-    if (err) {
-      throw err;
+    if (!err) {
+      if (rows.length > 0){
+        let data = JSON.stringify(rows[0]);
+        const token = jwt.sign(data, 'stil');
+        res.json({token});
+      } else {
+        res.json('Usuario o clave incorrectos');
+      }
     }
-
     res.status(200).json(result);
   });
 };
