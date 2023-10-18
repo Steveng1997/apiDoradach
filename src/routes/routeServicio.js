@@ -13,9 +13,7 @@ module.exports = () => {
     routerServicio.get('/getEncargadaAndCierre/:encargada', servicioController.getByCierre);
     routerServicio.get('/getServicios', servicioController.getServicio);
     routerServicio.get('/getManagerOrderCurrentDate/:encargada', servicioController.getManagerOrderCurrenDate);
-    routerServicio.get('/getByLiquidacionEncargadaFalse', servicioController.getByLiquidEncargadaFalse);
     routerServicio.get('/getByLiquidacionTerapeutaFalse', servicioController.getByLiquidTerapFalse);
-    routerServicio.get('/getByLiquidacionTerapeutaTrue', servicioController.getByLiquidTerapTrue);
     routerServicio.get('/getIdTerapeuta/:idTerapeuta', servicioController.getByIdTerap);
     routerServicio.get('/getIdCierre/:idCierre', servicioController.getByIdCierre);
     routerServicio.get('/getIdEncargada/:idEncargada', servicioController.getByIdEncarg);
@@ -25,7 +23,6 @@ module.exports = () => {
     routerServicio.get('/getByTerapeutaAsc/:terapeuta', servicioController.getTerapeutaByAsc);
     routerServicio.get('/getByTerapeutaDesc/:terapeuta', servicioController.getTerapeutaByDesc);
     routerServicio.get('/getByTerapeuta/:terapeuta', servicioController.getTerapeuta);
-    routerServicio.get('/getByIdUnico/:idUnico', servicioController.getIdDocument);
     routerServicio.get('/getByEncargada/:encargada', servicioController.getEncargada);
     routerServicio.get('/getTerapeuAndEncar', servicioController.getTerapeutaEncargada);
     routerServicio.get('/getEncargadaLiquidacionFalse/:encargada', servicioController.getEncargadaAndLiquidacion);
@@ -48,8 +45,6 @@ module.exports = () => {
     routerServicio.get('/getByEncargadaFechaAsc/:encargada', servicioController.getEncargadaFechaAsc);
     routerServicio.get('/getByEncargadaFechaDesc/:encargada', servicioController.getEncargadaFechaDesc);
     routerServicio.get('/getByFechaHoy/:fechaHoyInicio', servicioController.getFechaHoy);
-    routerServicio.get('/getByIdUnicoByCierre/:idUnico', servicioController.getIdUnicoByCierre);
-    routerServicio.get('/getByIdUnico/:idUnico', servicioController.getIdUnico);
     routerServicio.get('/getByIdDesc/:idUnico', servicioController.getIdDesc);
     routerServicio.get('/getByServicioByEncargadaAndIdUnico/:encargada', servicioController.getServicioByEncargadaAndIdUnico);
     routerServicio.get('/getByEncargadaFechaAscByCierreTrue/:encargada', servicioController.getEncargadaFechaAscByCierreTrue);

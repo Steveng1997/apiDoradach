@@ -108,35 +108,9 @@ exports.getManagerOrderCurrenDate = (req, res) => {
   });
 };
 
-exports.getByLiquidEncargadaFalse = (req, res) => {
-  const sql =
-    'SELECT * FROM servicio WHERE liquidadoEncargada = "0" ORDER BY currentDate desc';
-
-  pool.query(sql, (err, result, fields) => {
-    if (err) {
-      throw err;
-    }
-
-    res.status(200).json(result);
-  });
-};
-
 exports.getByLiquidTerapFalse = (req, res) => {
   const sql =
     'SELECT * FROM servicio WHERE liquidadoTerapeuta = "0" ORDER BY currentDate desc';
-
-  pool.query(sql, (err, result, fields) => {
-    if (err) {
-      throw err;
-    }
-
-    res.status(200).json(result);
-  });
-};
-
-exports.getByLiquidTerapTrue = (req, res) => {
-  const sql =
-    'SELECT * FROM servicio WHERE liquidadoTerapeuta = "1" ORDER BY currentDate desc';
 
   pool.query(sql, (err, result, fields) => {
     if (err) {
@@ -264,20 +238,6 @@ exports.getTerapeuta = (req, res) => {
   const sql = "SELECT * FROM servicio WHERE terapeuta = ?";
 
   pool.query(sql, [terapeuta], (err, result, fields) => {
-    if (err) {
-      throw err;
-    }
-
-    res.status(200).json(result);
-  });
-};
-
-exports.getIdDocument = (req, res) => {
-  const { idUnico } = req.params;
-
-  const sql = "SELECT * FROM servicio WHERE idUnico = ?";
-
-  pool.query(sql, [idUnico], (err, result, fields) => {
     if (err) {
       throw err;
     }
@@ -619,34 +579,6 @@ exports.getFechaHoy = (req, res) => {
     "SELECT * FROM servicio WHERE fechaHoyInicio = ? ORDER BY currentDate desc";
 
   pool.query(sql, [fechaHoyInicio], (err, result, fields) => {
-    if (err) {
-      throw err;
-    }
-
-    res.status(200).json(result);
-  });
-};
-
-exports.getIdUnicoByCierre = (req, res) => {
-  const { idUnico } = req.params;
-
-  const sql = "SELECT * FROM servicio WHERE idUnico = ? AND cierre = '0'";
-
-  pool.query(sql, [idUnico], (err, result, fields) => {
-    if (err) {
-      throw err;
-    }
-
-    res.status(200).json(result);
-  });
-};
-
-exports.getIdUnico = (req, res) => {
-  const { idUnico } = req.params;
-
-  const sql = "SELECT * FROM servicio WHERE idUnico = ? ORDER BY idUnico desc";
-
-  pool.query(sql, [idUnico], (err, result, fields) => {
     if (err) {
       throw err;
     }
