@@ -42,7 +42,7 @@ exports.getByTerapeutaAndLiquidatedZero = (req, res) => {
   const { terapeuta } = req.params;
 
   const sql =
-    'SELECT * FROM servicio WHERE terapeuta = ? AND liquidadoTerapeuta = "0"';
+    'SELECT * FROM servicio WHERE terapeuta = ? AND liquidadoTerapeuta = "0" ORDER BY id desc';
 
   pool.query(sql, [terapeuta], (err, result, fields) => {
     if (err) {
