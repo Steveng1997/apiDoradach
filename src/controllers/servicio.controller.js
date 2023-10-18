@@ -38,6 +38,21 @@ exports.getByTerapeutaAndEncargada = (req, res) => {
   });
 };
 
+exports.getByTerapeutaAndLiquidatedZero = (req, res) => {
+  const { terapeuta } = req.params;
+
+  const sql =
+    'SELECT * FROM servicio WHERE terapeuta = ? AND liquidadoTerapeuta = "0"';
+
+  pool.query(sql, [terapeuta], (err, result, fields) => {
+    if (err) {
+      throw err;
+    }
+
+    res.status(200).json(result);
+  });
+};
+
 exports.getByEncargada = (req, res) => {
   const { encargada } = req.params;
 
