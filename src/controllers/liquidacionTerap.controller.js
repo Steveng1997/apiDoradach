@@ -67,6 +67,20 @@ exports.getByEncargada = (req, res) => {
   });
 };
 
+exports.getByTherapist = (req, res) => {
+  const { terapeuta } = req.params;
+
+  const sql = 'SELECT * FROM liquidacionesTerapeuta WHERE terapeuta = ? ORDER BY id desc';
+
+  pool.query(sql, [terapeuta], (err, result, fields) => {
+    if (err) {
+      throw err;
+    }
+
+    res.status(200).json(result);
+  });
+};
+
 // Actualizamos
 
 exports.update = (req, res) => {

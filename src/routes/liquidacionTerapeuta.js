@@ -9,7 +9,8 @@ module.exports = () => {
     routerLiqTerap.get('/getByLiquidacionesTerapeuta', liquidacionTerapController.getLiquidacionesTerapeuta);
     routerLiqTerap.get('/getByIdTerap/:idTerapeuta', liquidacionTerapController.getIdTerap);
     routerLiqTerap.get('/getTerapeutaAndEncargada', liquidacionTerapController.getByTerapeutaAndEncargada);
-    routerLiqTerap.get('/getEncargada/:encargada', liquidacionTerapController.getByEncargada);    
+    routerLiqTerap.get('/getEncargada/:encargada', liquidacionTerapController.getByEncargada);
+    routerLiqTerap.get('/getTherapist/:terapeuta', liquidacionTerapController.getByTherapist);
 
     // Insertar
     routerLiqTerap.post('/registerLiqTerap', liquidacionTerapController.create);
@@ -17,7 +18,7 @@ module.exports = () => {
     // Actualizar
     routerLiqTerap.put('/updateByTerapeuta/:terapeuta', liquidacionTerapController.update);
     routerLiqTerap.put('/updateIdAndImporte/:idTerapeuta', liquidacionTerapController.updateByIdImporte);
-    routerLiqTerap.put('/updateByTerapByImporteById/:id', liquidacionTerapController.updateTerapeutaImporteById);    
+    routerLiqTerap.put('/updateByTerapByImporteById/:id', liquidacionTerapController.updateTerapeutaImporteById);
 
     return routerLiqTerap;
 }
