@@ -106,6 +106,7 @@ exports.updateEncargadas = (req, res) => {
   const id = req.params.id;
 
   const sql = "UPDATE encargada SET ? WHERE id = ?";
+  
   pool.query(sql, [req.body, id], () => {
     res.json({ message: "The encargada was Updated" });
   });

@@ -9,6 +9,7 @@ module.exports = () => {
     routerServicio.get('/getByCierreTrue', servicioController.getByCurrentDesc);
     routerServicio.get('/getTerapeutaAndEncargada', servicioController.getByTerapeutaAndEncargada);
     routerServicio.get('/getByTerapeutaLiquidatedZero/:terapeuta', servicioController.getByTerapeutaAndLiquidatedZero);
+    routerServicio.get('/getByManagerLiquidatedZero/:encargada', servicioController.getByManagerAndLiquidatedZero);
     routerServicio.get('/getEncargada/:encargada', servicioController.getByEncargada);
     routerServicio.get('/getEncargadaAndCierre/:encargada', servicioController.getByCierre);
     routerServicio.get('/getServicios', servicioController.getServicio);

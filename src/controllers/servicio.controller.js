@@ -439,6 +439,21 @@ exports.getEncargadaFechaAscByLiqTrue = (req, res) => {
   });
 };
 
+exports.getByManagerAndLiquidatedZero = (req, res) => {
+  const { encargada } = req.params;
+
+  const sql =
+    'SELECT * FROM servicio WHERE encargada = ? AND liquidadoEncargada = "0" ORDER BY id desc';
+
+  pool.query(sql, [encargada], (err, result, fields) => {
+    if (err) {
+      throw err;
+    }
+
+    res.status(200).json(result);
+  });
+};
+
 exports.getEncargFechaAsc = (req, res) => {
   const { encargada } = req.params;
 
