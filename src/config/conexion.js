@@ -5,7 +5,7 @@ require("dotenv").config();
  * @description PROD
  */
 const config = {
-  host: "doradachik.c1iy0mezviki.us-east-1.rds.amazonaws.com",
+  host: "doradachik.caoekigfvosa.us-east-2.rds.amazonaws.com",
   port: 3306,
   user: "doradachikAdmin",
   password: "Di8{q3vz3myy",
