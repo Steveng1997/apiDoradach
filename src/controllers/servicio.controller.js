@@ -666,8 +666,8 @@ exports.getByTerapeutaEncargadaFechaHoraInicioFechaHoraFin = (req, res) => {
     req.query;
 
   const sql = `	SELECT * FROM servicio WHERE terapeuta = ? AND encargada = ? 
-    AND STR_TO_DATE(CONCAT(fecha,' ',horaStart),'%e/%m/%y %H:%i') >= ?
-    AND STR_TO_DATE(CONCAT(fechaFin,' ',horaEnd),'%e/%m/%y %H:%i') <= ?
+    AND STR_TO_DATE(CONCAT(fecha,' ',horaStart),'%e-%m-%y %H:%i') >= ?
+    AND STR_TO_DATE(CONCAT(fechaFin,' ',horaEnd),'%e-%m-%y %H:%i') <= ?
     AND liquidadoTerapeuta = "0" ORDER BY id desc`;
 
   pool.query(
@@ -687,8 +687,8 @@ exports.getByEncargadaFechaHoraInicioFechaHoraFin = (req, res) => {
   const { encargada, horaStart, horaEnd, fecha, fechaFin } = req.query;
 
   const sql = `	SELECT * FROM servicio WHERE encargada = ?
-    AND STR_TO_DATE(CONCAT(fecha,' ',horaStart),'%e/%m/%y %H:%i') >= ?
-    AND STR_TO_DATE(CONCAT(fechaFin,' ',horaEnd),'%e/%m/%y %H:%i') <= ?
+    AND STR_TO_DATE(CONCAT(fecha,' ',horaStart),'%e-%m-%y %H:%i') >= ?
+    AND STR_TO_DATE(CONCAT(fechaFin,' ',horaEnd),'%e-%m-%y %H:%i') <= ?
     AND liquidadoEncargada = "0" ORDER BY id desc`;
 
   pool.query(
