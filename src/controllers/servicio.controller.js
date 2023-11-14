@@ -724,7 +724,7 @@ exports.getFormaPago = (req, res) => {
 
   const sql = `SELECT * FROM servicio WHERE formaPago LIKE $1`;
 
-  pool.query(sql, [`%${formaPago}%`], (err, result, fields) => {
+  pool.query(sql, [`%{Bizum}%`], (err, result, fields) => {
     if (err) {
       throw err;
     }
