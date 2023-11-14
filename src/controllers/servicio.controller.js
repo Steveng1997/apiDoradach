@@ -722,9 +722,9 @@ exports.getFechaHoyAndManager = (req, res) => {
 exports.getFormaPago = (req, res) => {
   const { formaPago } = req.params;
 
-  const sql = `SELECT * FROM servicio WHERE formaPago LIKE '%${formaPago}%'`;
+  const sql = `SELECT * FROM servicio WHERE formaPago LIKE '%$?%'`;
 
-  pool.query(sql, [formaPago] , (err, result, fields) => {
+  pool.query(sql, [`${formaPago}`] , (err, result, fields) => {
     if (err) {
       throw err;
     }
