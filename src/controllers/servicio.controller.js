@@ -719,6 +719,21 @@ exports.getFechaHoyAndManager = (req, res) => {
   });
 };
 
+exports.getPaymentForm = (req, res) => {
+  const { formaPago } = req.params;
+
+  const sql =
+    "SELECT * FROM servicio WHERE formaPago LIKE '%?%'";
+
+  pool.query(sql, [formaPago], (err, result, fields) => {
+    if (err) {
+      throw err;
+    }
+
+    res.status(200).json(result);
+  });
+};
+
 // Update
 
 exports.updateServicio = (req, res) => {
