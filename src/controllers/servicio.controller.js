@@ -723,7 +723,7 @@ exports.getFormaPago = (req, res) => {
   const { formaPago } = req.params;
 
   const sql =
-  `SELECT * FROM servicio WHERE formaPago LIKE '%?%'`;
+  `SELECT * FROM servicio WHERE formaPago LIKE %?%`;
 
   pool.query(sql, [formaPago], (err, result, fields) => {
     if (err) {
