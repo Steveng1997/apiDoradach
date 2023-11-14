@@ -720,8 +720,10 @@ exports.getFechaHoyAndManager = (req, res) => {
 };
 
 exports.getPaymentForm = (req, res) => {
+  const { formaPago } = req.params;
 
-  const sql = "SELECT * FROM servicio WHERE formaPago LIKE %Bizum%";
+  const sql = `SELECT * FROM servicio WHERE formaPago LIKE \'%${formaPago}%\'`;
+  console.log(sql)
 
   pool.query(sql, (err, result, fields) => {
     if (err) {
@@ -729,7 +731,13 @@ exports.getPaymentForm = (req, res) => {
     }
 
     res.status(200).json(result);
+    //res.send(result)//.status(200);
   });
+
+
+  console.log("Aqui estoy")
+
+  //res.send('hola mi perro').status(200);
 };
 
 // Update
