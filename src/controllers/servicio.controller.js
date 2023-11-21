@@ -737,21 +737,6 @@ exports.getPaymentForm = (req, res) => {
   console.log("Aqui estoy")
 };
 
-exports.getByTerapeutaAndLiquidatedOne = (req, res) => {
-  const { terapeuta, idTerapeuta } = req.query;
-
-  const sql =
-    'SELECT * FROM servicio WHERE terapeuta = ? AND liquidadoTerapeuta = "1" and idTerapeuta = ? ORDER BY id desc';
-
-  pool.query(sql, [terapeuta, idTerapeuta], (err, result, fields) => {
-    if (err) {
-      throw err;
-    }
-
-    res.status(200).json(result);
-  });
-};
-
 // Update
 
 exports.updateServicio = (req, res) => {
