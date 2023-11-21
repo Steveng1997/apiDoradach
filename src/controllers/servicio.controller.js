@@ -731,13 +731,25 @@ exports.getPaymentForm = (req, res) => {
     }
 
     res.status(200).json(result);
-    //res.send(result)//.status(200);
   });
 
 
   console.log("Aqui estoy")
+};
 
-  //res.send('hola mi perro').status(200);
+exports.getByTerapeutaAndLiquidatedOne = (req, res) => {
+  const { terapeuta, idTerapeuta } = req.query;
+
+  const sql =
+    'SELECT * FROM servicio WHERE terapeuta = ? AND liquidadoTerapeuta = "1" and idTerapeuta = ? ORDER BY id desc';
+
+  pool.query(sql, [terapeuta, idTerapeuta], (err, result, fields) => {
+    if (err) {
+      throw err;
+    }
+
+    res.status(200).json(result);
+  });
 };
 
 // Update
