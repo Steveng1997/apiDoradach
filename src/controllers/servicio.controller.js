@@ -24,12 +24,12 @@ exports.getByCurrentDesc = (req, res) => {
 };
 
 exports.getByTerapeutaAndEncargada = (req, res) => {
-  const { terapeuta, encargada } = req.params;
+  const { terapeuta, encargada, liquidadoTerapeuta = 0 } = req.body;
 
   const sql =
-    'SELECT * FROM servicio WHERE terapeuta = ? AND encargada = ? AND liquidadoTerapeuta = "0"';
+    'SELECT * FROM servicio WHERE terapeuta = ? AND encargada = ? AND liquidadoTerapeuta = ?';
 
-  pool.query(sql, [terapeuta, encargada], (err, result, fields) => {
+  pool.query(sql, [terapeuta, encargada, liquidadoTerapeuta], (err, result, fields) => {
     if (err) {
       throw err;
     }
