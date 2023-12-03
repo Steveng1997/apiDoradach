@@ -24,19 +24,19 @@ exports.getByCurrentDesc = (req, res) => {
 };
 
 exports.getByTerapeutaAndEncargada = (req, res) => {
-  console.log('aqui estoy')
-  // const { terapeuta, encargada } = req.params;
+  const { terapeuta, encargada } = req.params;
 
-  // const sql =
-  //   'SELECT * FROM servicio WHERE terapeuta = ? AND encargada = ? AND liquidadoTerapeuta = 0';
+  const sql =
+    'SELECT * FROM servicio WHERE terapeuta = ? AND encargada = ? AND liquidadoTerapeuta = 0';
 
-  // pool.query(sql, [terapeuta, encargada], (err, result, fields) => {
-  //   if (err) {
-  //     throw err;
-  //   }
+  pool.query(sql, [terapeuta, encargada], (err, result, fields) => {
+    if (err) {
+      throw err;
+    }
 
-  //   res.status(200).json(result);
-  // });
+    console.log(result)
+    res.status(200).json(result);
+  });
 };
 
 exports.getByTerapeutaAndLiquidatedZero = (req, res) => {
