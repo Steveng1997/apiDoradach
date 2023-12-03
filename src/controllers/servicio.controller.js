@@ -27,7 +27,7 @@ exports.getByTerapeutaAndEncargada = (req, res) => {
   const { terapeuta, encargada } = req.params;
 
   const sql =
-    'SELECT * FROM servicio WHERE terapeuta = ? AND encargada = ? AND liquidadoTerapeuta = "0"';
+    'SELECT * FROM servicio';
 
   pool.query(sql, [terapeuta, encargada], (err, result, fields) => {
     if (err) {
