@@ -724,7 +724,6 @@ exports.getPaymentForm = (req, res) => {
   const { formaPago } = req.params;
 
   const sql = `SELECT * FROM servicio WHERE formaPago LIKE \'%${formaPago}%\'`;
-  console.log(sql)
 
   pool.query(sql, (err, result, fields) => {
     if (err) {
@@ -733,9 +732,6 @@ exports.getPaymentForm = (req, res) => {
 
     res.status(200).json(result);
   });
-
-
-  console.log("Aqui estoy")
 };
 
 // Update
