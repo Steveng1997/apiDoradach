@@ -31,11 +31,11 @@ exports.getByTerapeutaAndEncargada = (req, res) => {
 
   pool.query(sql, [terapeuta, encargada], (err, result, fields) => {
     if (err) {
-      console.log(result, err)
+      console.log('aqui es el error', result, err)
       throw err;
     }
 
-    console.log(result)
+    console.log('aqui obtenemos algo', result)
     res.status(200).json(result);
   });
 };
