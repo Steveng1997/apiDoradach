@@ -7,7 +7,7 @@ module.exports = () => {
 
     // Get
     routerServicio.get('/getByCierreTrue', servicioController.getByCurrentDesc);
-    routerServicio.get('/getTerapeutaAndEncargada', servicioController.getByTerapeutaAndEncargada);
+    routerServicio.get('/getTerapeutaAndEncargada/:terapeuta/:encargada', servicioController.getByTerapeutaAndEncargada);
     routerServicio.get('/getByTerapeutaLiquidatedZero/:terapeuta', servicioController.getByTerapeutaAndLiquidatedZero);
     routerServicio.get('/getByManagerLiquidatedZero/:encargada', servicioController.getByManagerAndLiquidatedZero);
     routerServicio.get('/getEncargada/:encargada', servicioController.getByEncargada);
@@ -54,7 +54,7 @@ module.exports = () => {
     routerServicio.get('/getEncargadaFechaHoraInicioFechaHoraFin', servicioController.getByEncargadaFechaHoraInicioFechaHoraFin);
     routerServicio.get('/getFechaHoyByManager', servicioController.getFechaHoyAndManager);
     routerServicio.get('/getPaymenForm/:formaPago', servicioController.getPaymentForm);
-    
+
     // Insert
     routerServicio.post('/registerServicio', servicioController.create);
 

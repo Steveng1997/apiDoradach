@@ -24,7 +24,7 @@ exports.getByCurrentDesc = (req, res) => {
 };
 
 exports.getByTerapeutaAndEncargada = (req, res) => {
-  const { terapeuta, encargada } = req.query;
+  const { terapeuta, encargada } = req.params;
 
   const sql =
     'SELECT * FROM servicio WHERE terapeuta = ? AND encargada = ? AND liquidadoTerapeuta = "0"';
