@@ -31,6 +31,7 @@ exports.getByTerapeutaAndEncargada = (req, res) => {
 
   pool.query(sql, [terapeuta, encargada, liquidadoTerapeuta], (err, result, fields) => {
     if (err) {
+      console.log('error')
       throw err;
     }
 
