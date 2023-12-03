@@ -24,12 +24,12 @@ exports.getByCurrentDesc = (req, res) => {
 };
 
 exports.getByTerapeutaAndEncargada = (req, res) => {
-  const { terapeuta, encargada } = req.params;
+  const { encargada } = req.params;
 
   const sql =
-    'SELECT * FROM servicio';
+    'SELECT * FROM servicio WHERE encargada = ?';
 
-  pool.query(sql, [terapeuta, encargada], (err, result, fields) => {
+  pool.query(sql, [terapeuta], (err, result, fields) => {
     if (err) {
       throw err;
     }
