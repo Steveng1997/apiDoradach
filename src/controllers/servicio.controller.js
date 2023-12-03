@@ -29,7 +29,7 @@ exports.getByTerapeutaAndEncargada = (req, res) => {
   const sql =
     'SELECT * FROM servicio WHERE encargada = ?';
 
-  pool.query(sql, [terapeuta], (err, result, fields) => {
+  pool.query(sql, [encargada], (err, result, fields) => {
     if (err) {
       throw err;
     }
