@@ -54,7 +54,10 @@ module.exports = () => {
     routerServicio.get('/getEncargadaFechaHoraInicioFechaHoraFin', servicioController.getByEncargadaFechaHoraInicioFechaHoraFin);
     routerServicio.get('/getFechaHoyByManager', servicioController.getFechaHoyAndManager);
     routerServicio.get('/getPaymenForm/:formaPago', servicioController.getPaymentForm);
+    routerServicio.get('/getTherapistAndDate/:terapeuta/:fechaHoyInicio', servicioController.getTherapistAndDates);
+    routerServicio.get('/getManagerAndDate/:encargada/:fechaHoyInicio', servicioController.getManagerAndDates);
 
+    
     // Insert
     routerServicio.post('/registerServicio', servicioController.create);
 

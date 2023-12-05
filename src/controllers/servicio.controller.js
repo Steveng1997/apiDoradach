@@ -733,6 +733,36 @@ exports.getPaymentForm = (req, res) => {
   });
 };
 
+exports.getTherapistAndDates = (req, res) => {
+  const { terapeuta, fechaHoyInicio } = req.query;
+
+  const sql =
+    "SELECT * FROM servicio WHERE terapeuta = ? AND fechaHoyInicio = ? ORDER BY currentDate desc";
+
+  pool.query(sql, [terapeuta, fechaHoyInicio], (err, result, fields) => {
+    if (err) {
+      throw err;
+    }
+
+    res.status(200).json(result);
+  });
+};
+
+exports.getManagerAndDates = (req, res) => {
+  const { terapeuta, fechaHoyInicio } = req.query;
+
+  const sql =
+    "SELECT * FROM servicio WHERE encargada = ? AND fechaHoyInicio = ? ORDER BY currentDate desc";
+
+  pool.query(sql, [terapeuta, fechaHoyInicio], (err, result, fields) => {
+    if (err) {
+      throw err;
+    }
+
+    res.status(200).json(result);
+  });
+};
+
 // Update
 
 exports.updateServicio = (req, res) => {
