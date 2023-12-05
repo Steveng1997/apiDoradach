@@ -737,7 +737,7 @@ exports.getTherapistAndDates = (req, res) => {
   const { terapeuta, fechaHoyInicio } = req.query;
 
   const sql =
-    "SELECT * FROM servicio WHERE terapeuta = ? AND fechaHoyInicio = ? ORDER BY currentDate desc";
+    "SELECT * FROM servicio WHERE terapeuta = ? AND fechaHoyInicio = ?";
 
   pool.query(sql, [terapeuta, fechaHoyInicio], (err, result, fields) => {
     if (err) {
@@ -749,7 +749,7 @@ exports.getTherapistAndDates = (req, res) => {
 };
 
 exports.getManagerAndDates = (req, res) => {
-  const { terapeuta, fechaHoyInicio } = req.query;
+  const { terapeuta, fechaHoyInicio } = req.params;
 
   const sql =
     "SELECT * FROM servicio WHERE encargada = ? AND fechaHoyInicio = ? ORDER BY currentDate desc";
