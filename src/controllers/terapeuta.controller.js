@@ -63,6 +63,18 @@ exports.getAllTerapeutaByOrden = (req, res) => {
   });
 };
 
+exports.orderByMinutes = (req, res) => {
+  const sql = "SELECT * FROM terapeuta ORDER BY minuto desc;";
+
+  pool.query(sql, (err, result, fields) => {
+    if (err) {
+      throw err;
+    }
+
+    res.status(200).json(result);
+  });
+};
+
 // Actualizamos
 
 exports.updateTerapeutas = (req, res) => {
