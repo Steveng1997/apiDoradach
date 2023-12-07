@@ -28,7 +28,7 @@ CREATE TABLE terapeuta(
     fechaEnd VARCHAR(30),
     horaEnd VARCHAR(30),
     id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    minuto VARCHAR(30),
+    minuto INT(50),
     nombre VARCHAR(30),
     otros VARCHAR(30),
     propina VARCHAR(30),

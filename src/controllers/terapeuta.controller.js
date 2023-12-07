@@ -40,7 +40,7 @@ exports.getByNombre = (req, res) => {
 };
 
 exports.getAllTerapeuta = (req, res) => {
-  const sql = "SELECT * FROM terapeuta ORDER BY id asc;";
+  const sql = "SELECT * FROM terapeuta ORDER BY id asc";
 
   pool.query(sql, (err, result, fields) => {
     if (err) {
@@ -52,7 +52,7 @@ exports.getAllTerapeuta = (req, res) => {
 };
 
 exports.getAllTerapeutaByOrden = (req, res) => {
-  const sql = "SELECT * FROM terapeuta ORDER BY horaEnd desc;";
+  const sql = "SELECT * FROM terapeuta ORDER BY horaEnd desc";
 
   pool.query(sql, (err, result, fields) => {
     if (err) {
@@ -64,7 +64,7 @@ exports.getAllTerapeutaByOrden = (req, res) => {
 };
 
 exports.orderByMinutes = (req, res) => {
-  const sql = "SELECT * FROM terapeuta ORDER BY minuto desc;";
+  const sql = "SELECT * FROM terapeuta ORDER BY minuto desc";
 
   pool.query(sql, (err, result, fields) => {
     if (err) {
@@ -87,23 +87,11 @@ exports.updateTerapeutas = (req, res) => {
   });
 };
 
-exports.updateBy4Item = (req, res) => {
-  const { nombre } = req.params;
-  const { horaEnd, salida, fechaEnd, minuto } = req.body;
-
-  const sql =
-    "UPDATE terapeuta SET horaEnd = ?, salida = ?, fechaEnd = ?, minuto = ? WHERE nombre = ?";
-
-  pool.query(sql, [horaEnd, salida, fechaEnd, minuto, nombre], () => {
-    res.json({ message: "The encargada was Updated" });
-  });
-};
-
 exports.updateHoraAndSalida = (req, res) => {
   const { nombre } = req.params;
 
   const sql =
-    "UPDATE terapeuta SET horaEnd = '', salida = '', fechaEnd = '', minuto = '' WHERE nombre = ?";
+    "UPDATE terapeuta SET horaEnd = '', salida = '', fechaEnd = '', minuto = 0 WHERE nombre = ?";
 
   pool.query(sql, [nombre], () => {
     res.json({ message: "The encargada was Updated" });

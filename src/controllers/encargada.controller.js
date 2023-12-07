@@ -90,7 +90,7 @@ exports.getUsuarioAndPass = (req, res) => {
 }
 
 exports.getEncargadas = (req, res) => {
-  const sql = "SELECT * FROM encargada ORDER BY id asc;";
+  const sql = "SELECT * FROM encargada ORDER BY id asc";
 
   pool.query(sql, (err, result, fields) => {
     if (err) {
