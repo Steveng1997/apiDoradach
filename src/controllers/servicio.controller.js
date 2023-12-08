@@ -763,6 +763,21 @@ exports.getManagerAndDates = (req, res) => {
   });
 };
 
+exports.getTherapistConsultingManagerAndDate = (req, res) => {
+  const { encargada, fechaHoyInicio } = req.params;
+
+  const sql =
+    "SELECT DISTINCT terapeuta FROM servicio WHERE encargada = ? AND fechaHoyInicio";
+
+  pool.query(sql, [encargada, fechaHoyInicio], (err, result, fields) => {
+    if (err) {
+      throw err;
+    }
+
+    res.status(200).json(result);
+  });
+};
+
 // Update
 
 exports.updateServicio = (req, res) => {
