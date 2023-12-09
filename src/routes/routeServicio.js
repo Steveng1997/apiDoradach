@@ -73,8 +73,8 @@ module.exports = () => {
     routerServicio.put('/updateByWithValueNumberEncargada/:id/:idUnico', servicioController.updateWithValueNumberEncargada);
     routerServicio.put('/updateByNumberTerap/:idUnico', servicioController.updateNumberTerap);
     routerServicio.put('/updateByWithValueNumberTerap/:id/:idUnico', servicioController.updateWithValueNumberTerap);
-    routerServicio.put('/updateByNumberOtros/:idUnico', servicioController.updateNumberOtros);
-    routerServicio.put('/updateByWithValueNumberOtros/:id/:idUnico', servicioController.updateWithValueNumberOtros);
+    routerServicio.put('/updateByNumberTaxi/:idUnico', servicioController.updateNumberTaxi);
+    routerServicio.put('/updateByWithValueNumberTaxi/:id/:idUnico', servicioController.updateWithValueNumberTaxi);
     routerServicio.put('/updateByLiquidacionTerap/:id', servicioController.updateLiquidacionTerap);
     routerServicio.put('/updateByLiquidacionEncarg/:id', servicioController.updateLiquidacionEncarg);
     routerServicio.put('/updateByCierre/:idCierre/:id', servicioController.updateCierre);

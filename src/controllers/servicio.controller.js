@@ -917,24 +917,24 @@ exports.updateWithValueNumberTerap = (req, res) => {
   });
 };
 
-exports.updateNumberOtros = (req, res) => {
+exports.updateNumberTaxi = (req, res) => {
   const { idUnico } = req.params;
 
-  const sql = "UPDATE servicio SET numberOtro = '0' WHERE idUnico = ?";
+  const sql = "UPDATE servicio SET numberTaxi = '0' WHERE idUnico = ?";
 
   pool.query(sql, [idUnico], () => {
     res.json({ message: "The servicio was Updated" });
   });
 };
 
-exports.updateWithValueNumberOtros = (req, res) => {
+exports.updateWithValueNumberTaxi = (req, res) => {
   const id = req.params.id;
   const { idUnico } = req.params;
-  const { numberOtro } = req.body;
+  const { numberTaxi } = req.body;
 
-  const sql = "UPDATE servicio SET numberOtro = ? WHERE id = ? AND idUnico = ?";
+  const sql = "UPDATE servicio SET numberTaxi = ? WHERE id = ? AND idUnico = ?";
 
-  pool.query(sql, [numberOtro, id, idUnico], () => {
+  pool.query(sql, [numberTaxi, id, idUnico], () => {
     res.json({ message: "The servicio was Updated" });
   });
 };
