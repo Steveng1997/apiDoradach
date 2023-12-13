@@ -767,7 +767,7 @@ exports.getTherapistConsultingManagerAndDate = (req, res) => {
   const { encargada, fechaHoyInicio } = req.params;
 
   const sql =
-    "SELECT DISTINCT terapeuta FROM servicio WHERE encargada = ? AND fechaHoyInicio";
+    "SELECT DISTINCT terapeuta FROM servicio WHERE encargada = ? AND fechaHoyInicio = ?";
 
   pool.query(sql, [encargada, fechaHoyInicio], (err, result, fields) => {
     if (err) {
