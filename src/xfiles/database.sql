@@ -6,6 +6,7 @@ USE doradachik;
 CREATE TABLE encargada(
     activo BOOLEAN,
     bebida INT(4),
+    bebidaTerap INT(50),
     fijoDia INT(4),
     id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(80),
@@ -25,6 +26,7 @@ DESCRIBE encargada;
 CREATE TABLE terapeuta(
     activo BOOLEAN,
     bebida INT(4),
+    bebidaTerap INT(50),
     fechaEnd VARCHAR(30),
     horaEnd VARCHAR(30),
     id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -43,6 +45,7 @@ DESCRIBE terapeuta;
 -- Servicios
     CREATE TABLE servicio(
         bebidas INT(50),
+        bebidaTerap INT(50),
         bizuEncarg BOOLEAN,
         bizuDriverTaxi BOOLEAN,
         bizuPiso1 BOOLEAN,
