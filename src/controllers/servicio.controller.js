@@ -974,6 +974,26 @@ exports.updateCierre = (req, res) => {
   });
 };
 
+exports.updateTherapistSettlementTherapistIdByTherapistId = (req, res) => {
+  const idTerapeuta = req.params;
+
+  const sql = "UPDATE servicio SET liquidadoTerapeuta = '', idTerapeuta = '' WHERE idTerapeuta = ?";
+
+  pool.query(sql, [idTerapeuta], () => {
+    res.json({ message: "The servicio was Updated" });
+  });
+};
+
+exports.updateManagerSettlementManagerIdByManagerId = (req, res) => {
+  const idEncargada = req.params;
+
+  const sql = "UPDATE servicio SET liquidadoEncargada = '', idEncargada = '' WHERE idEncargada = ?";
+
+  pool.query(sql, [idEncargada], () => {
+    res.json({ message: "The servicio was Updated" });
+  });
+};
+
 // Delete
 
 exports.deleteServicio = (req, res) => {
