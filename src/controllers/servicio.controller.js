@@ -975,7 +975,7 @@ exports.updateCierre = (req, res) => {
 };
 
 exports.updateTherapistSettlementTherapistIdByTherapistId = (req, res) => {
-  const idTerapeuta = req.params;
+  const { idTerapeuta } = req.params;
 
   const sql = "UPDATE servicio SET liquidadoTerapeuta = '0', idTerapeuta = '' WHERE idTerapeuta = ?";
 
@@ -985,7 +985,7 @@ exports.updateTherapistSettlementTherapistIdByTherapistId = (req, res) => {
 };
 
 exports.updateManagerSettlementManagerIdByManagerId = (req, res) => {
-  const idEncargada = req.params;
+  const { idEncargada } = req.params;
 
   const sql = "UPDATE servicio SET liquidadoEncargada = '0', idEncargada = '' WHERE idEncargada = ?";
 
