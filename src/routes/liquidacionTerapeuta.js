@@ -21,7 +21,7 @@ module.exports = () => {
     routerLiqTerap.put('/updateByTerapByImporteById/:id', liquidacionTerapController.updateTerapeutaImporteById);
 
     // Delete
-    routerServicio.delete('/deleteLiquidationTherapists/:id', liquidacionTerapController.deleteLiquidationTherapist);
+    routerLiqTerap.delete('/deleteLiquidationTherapists/:id', liquidacionTerapController.deleteLiquidationTherapist);
 
     return routerLiqTerap;
 }
