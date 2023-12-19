@@ -87,3 +87,15 @@ exports.updateEncargadaImporteById = (req, res) => {
     res.json({ message: "The encargada was Updated" });
   });
 };
+
+// Delete
+
+exports.deleteLiquidationManager = (req, res) => {
+  const ID = req.params.id;
+
+  const sql = "DELETE FROM liquidacionesEncargada WHERE id = ?";
+
+  pool.query(sql, ID, (err, result, fields) => {
+    res.json({ message: "The terapeuta was deleted" });
+  });
+};

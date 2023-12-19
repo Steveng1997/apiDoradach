@@ -100,7 +100,9 @@ exports.getEncargadas = (req, res) => {
     res.status(200).json(result);
   });
 };
-// Actualizamos
+
+
+// Update
 
 exports.updateEncargadas = (req, res) => {
   const id = req.params.id;
@@ -112,7 +114,7 @@ exports.updateEncargadas = (req, res) => {
   });
 };
 
-// Eliminamos
+// Delete
 
 exports.delete = (req, res) => {
   const id = req.params.id;

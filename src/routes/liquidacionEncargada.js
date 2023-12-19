@@ -18,5 +18,8 @@ module.exports = () => {
     routerLiqEncarg.put('/updateIdAndImporte/:idEncargada', liquidacionEncargController.updateByIdImporte);
     routerLiqEncarg.put('/updateByEncargByImporteById/:id', liquidacionEncargController.updateEncargadaImporteById);
 
+    // Delete
+    routerServicio.delete('/deleteLiquidationManagers/:id', liquidacionTerapController.deleteLiquidationManager);
+
     return routerLiqEncarg;
 }
