@@ -667,7 +667,7 @@ exports.getByTerapeutaEncargadaFechaHoraInicioFechaHoraFin = (req, res) => {
   const sql = `	SELECT * FROM servicio WHERE terapeuta = ? AND encargada = ? 
     AND STR_TO_DATE(CONCAT(fechaHoyInicio,' ',horaStart),'%e-%m-%y %H:%i') >= ?
     AND STR_TO_DATE(CONCAT(fechaHoyInicio,' ',horaEnd),'%e-%m-%y %H:%i') <= ?
-    AND liquidadoTerapeuta = "0" ORDER BY id desc`;
+    AND liquidadoTerapeuta = '0' ORDER BY id desc`;
 
   pool.query(
     sql, [terapeuta, encargada, fechaHoyInicio, horaStart, fechaHoyInicio, horaEnd],
