@@ -670,7 +670,7 @@ exports.getByTerapeutaEncargadaFechaHoraInicioFechaHoraFin = (req, res) => {
     AND liquidadoTerapeuta = "0" ORDER BY id desc`;
 
   pool.query(
-    sql, [terapeuta, encargada, fechaHoyInicio, horaStart, horaEnd],
+    sql, [terapeuta, encargada, fechaHoyInicio, horaStart, fechaHoyInicio, horaEnd],
     (err, result, fields) => {
       if (err) {
         throw err;
