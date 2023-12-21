@@ -671,7 +671,7 @@ exports.getByTerapeutaEncargadaFechaHoraInicioFechaHoraFin = (req, res) => {
 
   pool.query(
     sql,
-    [terapeuta, encargada, horaStart, horaEnd, fecha ,fechaFin],
+    [terapeuta, encargada, `${fecha} ${horaStart}`, `${fechaFin} ${horaEnd}`],
     (err, result, fields) => {
       if (err) {
         throw err;
