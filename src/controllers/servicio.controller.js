@@ -662,7 +662,7 @@ exports.getEncargadaFechaDescByCierreFalse = (req, res) => {
 };
 
 exports.getByTerapeutaEncargadaFechaHoraInicioFechaHoraFin = (req, res) => {
-  const { terapeuta, encargada, horaStart, horaEnd, fecha, fechaFin } = req.query;
+  const { terapeuta, encargada, horaStart, horaEnd, fecha, fechaFin } = req.params;
 
   const sql = `	SELECT * FROM servicio WHERE terapeuta = ? AND encargada = ? 
     AND STR_TO_DATE(CONCAT(fecha,' ',horaStart),'%e-%m-%y %H:%i') >= ?
