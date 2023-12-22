@@ -146,19 +146,21 @@ DESCRIBE cierre;
 
 -- Liquidacion Terapeuta
 CREATE TABLE liquidacionesTerapeuta(
-    currentDate VARCHAR(100),
+    createdDate VARCHAR(40),
+    currentDate VARCHAR(100),    
     desdeFechaLiquidado VARCHAR(30),
     desdeHoraLiquidado VARCHAR(30),
     encargada VARCHAR(30),
     hastaFechaLiquidado VARCHAR(30),
-    hastaHoraLiquidado VARCHAR(30),
-    createdDate VARCHAR(40),
+    hastaHoraLiquidado VARCHAR(30),    
     id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     idUnico VARCHAR(100),
     idTerapeuta VARCHAR(100),
     importe INT(50),
+    regularizacion varchar(250),
     terapeuta VARCHAR(30),
     tratamiento INT(50)
+    valueRegularizacion INT(10),
 );
 
 DESCRIBE liquidacionesTerapeuta;
