@@ -74,7 +74,7 @@ module.exports = () => {
     routerServicio.put('/updateByCierre/:idCierre/:id', servicioController.updateCierre);
     routerServicio.put('/updatesTherapistSettlementTherapistIdByTherapistId/:idTerapeuta', servicioController.updateTherapistSettlementTherapistIdByTherapistId);
     routerServicio.put('/updatesManagerSettlementManagerIdByManagerId/:idEncargada', servicioController.updateManagerSettlementManagerIdByManagerId);
-    routerServicio.put('/updateScreenById/:id/:pantalla', servicioController.updateScreenByIds);
+    routerServicio.put('/updateScreenById/:id', servicioController.updateScreenByIds);
 
     // Delete
     routerServicio.delete('/EliminarServicio/:id', servicioController.deleteServicio);

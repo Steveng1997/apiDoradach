@@ -1010,7 +1010,7 @@ exports.updateScreenByIds = (req, res) => {
 
   const sql = "UPDATE servicio SET pantalla = ? WHERE id = ?";
 
-  pool.query(sql, [id, pantalla], () => {
+  pool.query(sql, [pantalla, id], () => {
     res.json({ message: "The servicio was Updated" });
   });
 };
