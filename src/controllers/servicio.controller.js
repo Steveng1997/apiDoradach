@@ -993,6 +993,17 @@ exports.updateManagerSettlementManagerIdByManagerId = (req, res) => {
   });
 };
 
+exports.updateScreenByIds = (req, res) => {
+  const id = req.params.id;
+  const { pantalla } = req.body;
+
+  const sql = "UPDATE servicio SET pantalla = ?, WHERE id = ?";
+
+  pool.query(sql, [pantalla, id], () => {
+    res.json({ message: "The servicio was Updated" });
+  });
+};
+
 // Delete
 
 exports.deleteServicio = (req, res) => {
