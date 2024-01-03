@@ -777,9 +777,10 @@ exports.getTherapistConsultingManagerAndDate = (req, res) => {
 };
 
 exports.getTherapistConsultingManagerAndTherapistAndDate = (req, res) => {
-  const { encargada, terapeuta, fechaHoyInicio } = req.params;
+  const { encargada, terapeuta, fechaHoyInicio } = req.query;
 
-  const sql = "SELECT * FROM servicio WHERE encargada = ? AND terapeuta = ? AND fechaHoyInicio = ?";
+  const sql =
+    "SELECT * FROM servicio WHERE encargada = ? AND terapeuta = ? AND fechaHoyInicio = ?";
 
   pool.query(sql, [encargada, terapeuta, fechaHoyInicio], (err, result, fields) => {
     if (err) {
