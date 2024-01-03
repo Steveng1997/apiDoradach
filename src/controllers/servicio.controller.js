@@ -776,21 +776,6 @@ exports.getTherapistConsultingManagerAndDate = (req, res) => {
   });
 };
 
-exports.getTherapistConsultingManagerAndTherapistAndDate = (req, res) => {
-  const { encargada, terapeuta, fechaHoyInicio } = req.query;
-
-  const sql =
-    "SELECT * FROM servicio WHERE encargada = ? AND terapeuta = ? AND fechaHoyInicio = ?";
-
-  pool.query(sql, [encargada, terapeuta, fechaHoyInicio], (err, result, fields) => {
-    if (err) {
-      throw err;
-    }
-
-    res.status(200).json(result);
-  });
-};
-
 // Update
 
 exports.updateServicio = (req, res) => {
