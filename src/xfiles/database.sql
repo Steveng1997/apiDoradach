@@ -178,6 +178,7 @@ CREATE TABLE liquidacionesEncargada(
     idUnico VARCHAR(100),
     idEncargada VARCHAR(100),
     importe INT(50),
+    regularizacion varchar(250),
     tratamiento INT(50)
 );
 
